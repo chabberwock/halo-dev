@@ -4,15 +4,15 @@
 * Email: notengine@gmail.com
 */
 namespace app;
-use yii\helpers\ArrayHelper;
+use yii\helpers\ArrayHelper;         
 
 class Configurator
 {
-    private $modulesDir;
+    private $pluginsDir;
     
     public function __construct()
     {
-        $this->modulesDir = dirname(__DIR__) . '/modules';
+        $this->pluginsDir = dirname(__DIR__) . '/plugins';
     }
     
     public function getConfig()
@@ -31,7 +31,7 @@ class Configurator
     
     private function getVendors()
     {
-        return glob($this->modulesDir . '/*', GLOB_ONLYDIR);
+        return glob($this->pluginsDir . '/*', GLOB_ONLYDIR);
     }
     
     
