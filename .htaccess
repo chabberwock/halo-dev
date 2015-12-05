@@ -5,10 +5,20 @@ AddDefaultCharset utf-8
     # Enable mod_rewrite
     RewriteEngine On
 
+    RewriteRule ^app/.* index.php
+    RewriteRule ^config/.* index.php
+    RewriteRule ^plugins/.* index.php
+    RewriteRule ^themes/.* index.php
+    RewriteRule ^runtime/.* index.php
+    RewriteRule ^vendor/.* index.php
+
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     # Otherwise forward the request to index.php
     RewriteRule . index.php
+    
+    
 </IfModule>
 
 
