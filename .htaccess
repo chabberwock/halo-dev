@@ -1,0 +1,18 @@
+AddDefaultCharset utf-8
+<IfModule mod_rewrite.c>
+    # If a directory or a file exists, use the request directly
+    Options +FollowSymlinks
+    # Enable mod_rewrite
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Otherwise forward the request to index.php
+    RewriteRule . index.php
+</IfModule>
+
+
+#AuthType Basic
+#AuthName "Password Protected Area"
+#AuthUserFile /var/www/backuper/app/frontend/web/.htpasswd
+#Require valid-user
