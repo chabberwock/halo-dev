@@ -10,13 +10,9 @@ use Yii;
 class Application extends \yii\web\Application
 {
     public $pluginPath;
-    public $isAdmin;
-    public $adminPrefix = 'admin';
     
     public function init()
     {
-        $prefix = strtok($_SERVER['REQUEST_URI'], '/');
-        $this->isAdmin = $prefix == $this->adminPrefix;
         $this->loadPluginConfigs();
         parent::init();
     }
@@ -29,9 +25,6 @@ class Application extends \yii\web\Application
             foreach (glob($vendorPath .'/*', GLOB_ONLYDIR) as $pluginPath) {
                 if (file_exists($pluginPath . '/config.php')) {
                     $config = ArrayHelper::merge($config, require($pluginPath . '/config.php'));
-                }
-                if ($this->isAdmin && file_exists($pluginPath . '/config-admin.php')) {
-                    $config = ArrayHelper::merge($config, require($pluginPath . '/config-admin.php'));
                 }
             }
         }

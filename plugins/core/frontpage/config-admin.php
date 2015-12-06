@@ -6,14 +6,9 @@
 
 return [
     'modules' => [
-        'admin' => [
-            'class' => 'app\admin\Module',
-            'modules' => [
-                'frontpage' => [
-                    'class' => 'core\frontpage\admin\Module',
-                ]
-            ]
-        ]
+        'frontpage' => [
+            'class' => 'core\frontpage\admin\Module',
+        ]    
     ]
 ];  
 ?>
