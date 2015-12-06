@@ -9,7 +9,7 @@ $config = [
     'runtimePath' => $basePath . '/runtime',
     'vendorPath' => $basePath . '/vendor',  
     'pluginPath' => $basePath . '/plugins',  
-    'bootstrap' => ['log','themeManager'],
+    'bootstrap' => ['log','themeManager','system'],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -23,7 +23,10 @@ $config = [
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             'showScriptName' => false,
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => true,  
+            'rules' => [
+                'admin/<uri:.+>' => '<uri>'
+            ]
         ], 
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -54,11 +57,11 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
     ],
     'modules' => [
-        'frontend' => [
-            'class' => 'app\frontend\Module'
-        ],
         'system' => [
             'class' => 'app\system\Module'
+        ],
+        'admin' => [
+            'class' => 'app\admin\Module'
         ],
     ],
     'params' => $params,

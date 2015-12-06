@@ -4,7 +4,7 @@ namespace core\frontpage;
 
 class Module extends \yii\base\Module
 {
-    public $controllerNamespace = 'core\frontpage\controllers\admin';
+    public $controllerNamespace = 'core\frontpage\controllers';
 
     public function init()
     {

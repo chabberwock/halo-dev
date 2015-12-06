@@ -33,7 +33,10 @@ class ThemeManager extends Component
         } else {
             Yii::configure(Yii::$app->view->theme, $viewConfig);
         }
-        Yii::$app->layoutPath = '@theme/layouts';   
+        Yii::$app->layoutPath = '@theme/layouts'; 
+        if (Yii::$app->isAdmin) {
+            Yii::$app->layoutPath = '@app/admin/views/layouts';        
+        }
     }
     
     
