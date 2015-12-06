@@ -4,6 +4,7 @@
 * Email: notengine@gmail.com
 */
 namespace app\system;
+use yii\helpers\ArrayHelper;
 use Yii;
 
 class Application extends \yii\web\Application
@@ -22,17 +23,19 @@ class Application extends \yii\web\Application
     
     protected function loadPluginConfigs()
     {
+        $config = [];
         foreach (glob($this->pluginPath . '/*', GLOB_ONLYDIR) as $vendorPath) {
             \Yii::setAlias(basename($vendorPath), $vendorPath);
             foreach (glob($vendorPath .'/*', GLOB_ONLYDIR) as $pluginPath) {
                 if (file_exists($pluginPath . '/config.php')) {
-                    \Yii::configure($this, require($pluginPath . '/config.php'));
+                    $config = ArrayHelper::merge($config, require($pluginPath . '/config.php'));
                 }
                 if ($this->isAdmin && file_exists($pluginPath . '/config-admin.php')) {
-                    \Yii::configure($this, require($pluginPath . '/config-admin.php'));
+                    $config = ArrayHelper::merge($config, require($pluginPath . '/config-admin.php'));
                 }
             }
         }
+        \Yii::configure($this, $config);
     }
     
     public function activateTheme($themeName)
