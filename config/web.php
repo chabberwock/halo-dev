@@ -24,11 +24,6 @@ $config = [
             'class' => 'yii\web\UrlManager',
             'showScriptName' => false,
             'enablePrettyUrl' => true,  
-/*
-            'rules' => [
-                'admin/<uri:.+>' => '<uri>'
-            ]
-*/
         ], 
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -65,6 +60,7 @@ $config = [
         'admin' => [
             'class' => 'app\admin\Module'
         ],
+        'redactor' => 'yii\redactor\RedactorModule',        
     ],
     'params' => $params,
 ];
