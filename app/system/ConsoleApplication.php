@@ -13,10 +13,9 @@ class ConsoleApplication extends \yii\console\Application
     private $availablePlugins;
     
     
-    public function init()
-    {
-        $this->loadPluginConfigs();
-        parent::init();
+    public function __construct($config) {
+        $this->pluginPath = $config['pluginPath'];
+        parent::__construct(ArrayHelper::merge($config, $this->loadPluginConfigs()));    
     }
     
     protected function loadPluginConfigs()
@@ -30,7 +29,7 @@ class ConsoleApplication extends \yii\console\Application
                 }
             }
         }
-        \Yii::configure($this, $config);
+        return $config;
     }
 }
   
