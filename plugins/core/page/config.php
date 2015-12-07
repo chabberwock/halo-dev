@@ -20,6 +20,11 @@ return [
                 ],
             ],
         ],
+        'urlManager' => [
+            'rules' => [
+                'page/<uri:.+>' => 'core-page/default/index'
+            ]
+        ],
     ],    
 ];  
 ?>

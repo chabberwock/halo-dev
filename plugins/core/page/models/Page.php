@@ -36,6 +36,7 @@ class Page extends \yii\db\ActiveRecord
             [['created_at', 'updated_at'], 'integer'],
             [['html'], 'string'],
             [['uri', 'title'], 'string', 'max' => 250],
+            ['uri','unique'],
             [['meta_keywords', 'meta_description'], 'string', 'max' => 1024]
         ];
     }
