@@ -6,7 +6,7 @@
 
 return [
     'modules' => [
-        'page' => [
+        'core-page' => [
             'class' => 'core\page\Module'
         ]
     ],

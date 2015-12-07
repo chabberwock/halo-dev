@@ -25,4 +25,11 @@ class Module extends \yii\base\Module
         // custom initialization code goes here
     }
     
+    public function menuItems()
+    {
+        return [
+            ['label'=>'Plugins', 'icon'=>'fa fa-cogs', 'url'=>['/admin/plugin/index']]
+        ];
+    }
+    
 }

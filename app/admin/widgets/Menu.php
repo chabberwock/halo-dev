@@ -16,6 +16,7 @@ class Menu extends \dmstr\widgets\Menu
     
     public function init()
     {
+        $this->items = Yii::$app->getModule('admin')->menuItems();
         foreach (Yii::$app->getModule('admin')->getModules() as $id=>$module)
         {
             if (is_array($module))

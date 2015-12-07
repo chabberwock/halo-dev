@@ -5,9 +5,9 @@
 */
 
 return [
-    'defaultRoute' => '/frontpage/default',
+    'defaultRoute' => '/core-frontpage/default',
     'modules' => [
-        'frontpage' => [
+        'core-frontpage' => [
             'class' => 'core\frontpage\Module'
         ]
     ]

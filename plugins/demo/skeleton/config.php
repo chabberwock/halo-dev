@@ -6,7 +6,7 @@
 
 return [
     'modules' => [
-        'skeleton' => [
+        'demo-skeleton' => [
             'class' => 'demo\skeleton\Plugin'
         ]
     ]

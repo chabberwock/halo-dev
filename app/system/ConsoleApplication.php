@@ -10,6 +10,8 @@ use Yii;
 class ConsoleApplication extends \yii\console\Application
 {
     public $pluginPath;
+    private $availablePlugins;
+    
     
     public function init()
     {
