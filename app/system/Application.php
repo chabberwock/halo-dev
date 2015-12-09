@@ -17,7 +17,18 @@ class Application extends \yii\web\Application
         $this->pluginPath = $config['pluginPath'];
         $haloConfig = require(__DIR__ . '/haloconfig.php');
         $cfg = ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config.php'), $config);
-        parent::__construct(ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config.php'), $config));    
+
+        $file = $cfg['vendorPath'] . '/yiisoft/extensions.php';
+        $extensions = is_file($file) ? include($file) : [];
+        
+        if (is_array($cfg['extensions'])) {
+            $cfg['extensions'] = ArrayHelper::merge($extensions, $cfg['extensions']);    
+        } else {
+            $cfg['extensions'] = $extensions;
+        }
+        
+        
+        parent::__construct($cfg);    
     }
     
 }

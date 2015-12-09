@@ -17,7 +17,19 @@ class ConsoleApplication extends \yii\console\Application
     {
         $this->pluginPath = $config['pluginPath'];
         $haloConfig = require(__DIR__ . '/haloconfig-console.php');
-        parent::__construct(ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config-console.php'), $config));    
+        $cfg = ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config-console.php'), $config);
+
+        $file = $cfg['vendorPath'] . '/yiisoft/extensions.php';
+        $extensions = is_file($file) ? include($file) : [];
+        
+        if (is_array($cfg['extensions'])) {
+            $cfg['extensions'] = ArrayHelper::merge($extensions, $cfg['extensions']);    
+        } else {
+            $cfg['extensions'] = $extensions;
+        }
+        
+        
+        parent::__construct($cfg);    
     }
     
 }
