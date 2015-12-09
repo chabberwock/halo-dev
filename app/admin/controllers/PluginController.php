@@ -59,7 +59,7 @@ class PluginController extends \yii\web\Controller
         $migrationPaths = $plugin->migrationsPath();
         if (is_string($migrationPaths)) {
             $migrationPaths = [$migrationPaths];
-        } else {
+        }
             foreach ($plugin->migrationsPath() as $path) {
                 $ctrl = new \app\admin\MigrationWrapper('migrate',$this->module);
                 $ctrl->migrationPath = \Yii::getAlias($path);
@@ -67,8 +67,6 @@ class PluginController extends \yii\web\Controller
                 $ctrl->runAction('up');
                 $result .= ob_get_clean();
             }
-        }
-
         return $this->render('migrate', ['result'=>$result]);
     }
 
