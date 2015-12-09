@@ -55,11 +55,20 @@ class PluginController extends \yii\web\Controller
     public function actionMigrate($key)
     {
         $plugin = Yii::$app->getModule($key);
-        $ctrl = new \app\admin\MigrationWrapper('migrate',$this->module);
-        $ctrl->migrationPath = $plugin->migrationsPath();
-        ob_start();
-        $ctrl->runAction('up');
-        $result = ob_get_clean();
+        $result = '';
+        $migrationPaths = $plugin->migrationsPath();
+        if (is_string($migrationPaths)) {
+            $migrationPaths = [$migrationPaths];
+        } else {
+            foreach ($plugin->migrationsPath() as $path) {
+                $ctrl = new \app\admin\MigrationWrapper('migrate',$this->module);
+                $ctrl->migrationPath = \Yii::getAlias($path);
+                ob_start();
+                $ctrl->runAction('up');
+                $result .= ob_get_clean();
+            }
+        }
+
         return $this->render('migrate', ['result'=>$result]);
     }
 

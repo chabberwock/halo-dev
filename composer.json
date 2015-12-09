@@ -20,7 +20,6 @@
         "yiisoft/yii2-swiftmailer": "*",
         "dmstr/yii2-adminlte-asset": "2.*",
         "yiidoc/yii2-redactor": "*",
-        "yiisoft/yii2-authclient": "~2.0",
         "yiisoft/yii2-jui": "~2.0"
     },
     "require-dev": {
