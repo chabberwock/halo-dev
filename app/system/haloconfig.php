@@ -1,13 +1,8 @@
 <?php
 
-return [
+$haloTemp = [
     'bootstrap' => ['log','themeManager','system'],
     'components' => [
-        'themeManager' => [
-            'class' => 'app\system\ThemeManager',
-            'themeDir' => $basePath . '/themes',
-            'theme' => 'dev',
-        ],
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             'showScriptName' => false,
@@ -51,5 +46,20 @@ return [
     ],
 
 ];
+
+if (YII_ENV_DEV) {
+    // configuration adjustments for 'dev' environment
+    $haloTemp['bootstrap'][] = 'debug';
+    $haloTemp['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+    ];
+
+    $haloTemp['bootstrap'][] = 'gii';
+    $haloTemp['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+    ];
+}
+
+return $haloTemp;
   
 ?>

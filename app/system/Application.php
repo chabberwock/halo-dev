@@ -16,6 +16,7 @@ class Application extends \yii\web\Application
     {
         $this->pluginPath = $config['pluginPath'];
         $haloConfig = require(__DIR__ . '/haloconfig.php');
+        $cfg = ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config.php'), $config);
         parent::__construct(ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config.php'), $config));    
     }
     
