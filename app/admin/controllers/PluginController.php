@@ -60,7 +60,7 @@ class PluginController extends \yii\web\Controller
         if (is_string($migrationPaths)) {
             $migrationPaths = [$migrationPaths];
         }
-            foreach ($plugin->migrationsPath() as $path) {
+            foreach ($migrationPaths as $path) {
                 $ctrl = new \app\admin\MigrationWrapper('migrate',$this->module);
                 $ctrl->migrationPath = \Yii::getAlias($path);
                 ob_start();
