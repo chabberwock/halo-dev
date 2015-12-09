@@ -21,7 +21,7 @@ class Application extends \yii\web\Application
         $file = $cfg['vendorPath'] . '/yiisoft/extensions.php';
         $extensions = is_file($file) ? include($file) : [];
         
-        if (is_array($cfg['extensions'])) {
+        if (isset($cfg['extensions']) && is_array($cfg['extensions'])) {
             $cfg['extensions'] = ArrayHelper::merge($extensions, $cfg['extensions']);    
         } else {
             $cfg['extensions'] = $extensions;
