@@ -8,6 +8,8 @@ namespace app\system;
 
 abstract class BasePlugin extends \yii\base\Module
 {
+    public $depends = [];
+    
     /**
     * @returns [] plugin information
     * 
