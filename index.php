@@ -8,3 +8,4 @@ require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/plugins/halo/system/Application.php');
 $config = require(__DIR__ . '/config/web.php');
 (new \halo\system\Application($config))->run();
+
