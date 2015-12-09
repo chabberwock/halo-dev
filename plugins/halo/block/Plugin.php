@@ -1,11 +1,10 @@
 <?php
 
-namespace demo\skeleton;
-use halo\system\BasePlugin;
+namespace halo\block;
 
-class Plugin extends BasePlugin
+class Plugin extends \halo\system\BasePlugin
 {
-    public $controllerNamespace = 'demo\skeleton\controllers';
+    public $controllerNamespace = 'halo\block\controllers';
 
     public function init()
     {
@@ -17,12 +16,13 @@ class Plugin extends BasePlugin
     public function pluginInfo()
     {
         return [
-            'name' => 'Skeleton plugin',
-            'description' => 'Just a demo plugin',
+            'name' => 'HTML Blocks',
+            'description' => 'Insert html blocks into your site, that can be editev via admin panel',
             'build' => 1,
             'author' => 'Alexandr Makarov',
-            'icon' => 'fa fa-gift',
+            'icon' => 'fa fa-th',
             'homepage' => 'https://github.com/chabberwock/halo-dev'
         ];
     }
+    
 }

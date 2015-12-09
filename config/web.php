@@ -5,7 +5,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'basePath' => $basePath . '/app',
+    'basePath' => $basePath,
     'runtimePath' => $basePath . '/runtime',
     'vendorPath' => $basePath . '/vendor',  
     'pluginPath' => $basePath . '/plugins',  
@@ -15,7 +15,7 @@ $config = [
             'cookieValidationKey' => '5rjnhKxtzI74aMSKaRXHDhMIAnOowNGT',
         ],
         'themeManager' => [
-            'class' => 'app\system\ThemeManager',
+            'class' => 'halo\system\ThemeManager',
             'themeDir' => $basePath . '/themes',
             'theme' => 'dev',
         ],
