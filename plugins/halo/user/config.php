@@ -36,7 +36,7 @@ return [
           ),
     ],
     'modules' => [
-        'halo-user-plugin' => [
+        'halo.user' => [
                 'class' => 'halo\user\Plugin',
         ],        
         'user' => [

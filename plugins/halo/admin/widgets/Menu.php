@@ -16,18 +16,10 @@ class Menu extends \dmstr\widgets\Menu
     
     public function init()
     {
-        $this->items = Yii::$app->getModule('admin')->menuItems();
-        foreach (Yii::$app->getModule('admin')->getModules() as $id=>$module)
-        {
-            if (is_array($module))
-            {
-                $module = Yii::$app->getModule('admin/'. $id);    
-            }
-            if ($module instanceof AdminModule)
-            {
-                $this->items = ArrayHelper::merge($this->items, Yii::$app->getModule('admin/'. $id)->menuItems());                
-            }
-        }
+        $this->items = Yii::$app->getModule('halo.admin')->menuItems();
+        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
+            $this->items = ArrayHelper::merge($this->items, Yii::$app->getModule($pluginId)->adminMenu());
+        } 
     }
 }
 ?>

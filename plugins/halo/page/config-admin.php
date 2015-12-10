@@ -6,7 +6,7 @@
 
 return [
     'modules' => [
-        'pageadmin' => [
+        'halo.page.admin' => [
             'class' => 'halo\page\admin\Module',
         ]    
     ]

@@ -21,6 +21,13 @@ abstract class BasePlugin extends \yii\base\Module
         return $this->getBasePath() . '/migrations';
     }
     
+    public function adminMenu()
+    {
+        return [];    
+    }
+    
+    
+    
 }
   
 ?>

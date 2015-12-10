@@ -23,4 +23,11 @@ class Module extends BasePlugin
 
         // custom initialization code goes here
     }
+    
+    public function adminMenu()
+    {
+        return [
+            ['label'=>'Front Page', 'url'=>['/halo.admin/halo.frontpage.admin'], 'icon'=>'fa fa-home']
+        ];
+    }
 }

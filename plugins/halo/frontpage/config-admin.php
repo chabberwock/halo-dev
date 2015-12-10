@@ -6,7 +6,7 @@
 
 return [
     'modules' => [
-        'frontpage' => [
+        'halo.frontpage.admin' => [
             'class' => 'halo\frontpage\admin\Module',
         ]    
     ]

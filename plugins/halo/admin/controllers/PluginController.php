@@ -34,13 +34,10 @@ class PluginController extends \yii\web\Controller
     
     private function getPlugins()
     {
-        $modules = Yii::$app->getModules();
         $plugins = [];
-        foreach (array_keys($modules) as $moduleId) {
-            $module = Yii::$app->getModule($moduleId);
-            if ($module instanceof BasePlugin) {
-                $plugins[$moduleId] = $module->pluginInfo();
-            }    
+        $mods = Yii::$app->getModules();
+        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
+            $plugins[$pluginId] = Yii::$app->getModule($pluginId)->pluginInfo();
         }
         return $plugins;
     }
@@ -61,7 +58,7 @@ class PluginController extends \yii\web\Controller
             $migrationPaths = [$migrationPaths];
         }
             foreach ($migrationPaths as $path) {
-                $ctrl = new \halo\admin\MigrationWrapper('migrate',$this->module);
+                $ctrl = new \halo\system\MigrationWrapper('migrate',$this->module);
                 $ctrl->migrationPath = \Yii::getAlias($path);
                 ob_start();
                 $ctrl->runAction('up');

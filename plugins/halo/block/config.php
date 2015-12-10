@@ -6,7 +6,7 @@
 
 return [
     'modules' => [
-        'halo-block' => [
+        'halo.block' => [
             'class' => 'halo\block\Plugin'
         ]
     ]
