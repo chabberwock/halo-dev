@@ -14,7 +14,7 @@ class PluginManager extends \yii\base\Component
     public $runtimePath;
     public $pluginPath;
 
-    private $_systemPlugins = ['halo.system', 'halo.admin', 'halo.user'];
+    private $_systemPlugins = ['halo.system', 'halo.admin', 'halo.user', 'halo.frontpage'];
     private $configFile;
     private $_activePlugins;
     
@@ -77,6 +77,7 @@ class PluginManager extends \yii\base\Component
         $fileData = '<?php ' . "\n return" . var_export($this->_activePlugins, true) . ';';
         file_put_contents($this->configFile, $fileData);    
     }
+    
 }
   
 ?>
