@@ -31,5 +31,12 @@ class Plugin extends \halo\system\BasePlugin
         ];
     }
     
+    public function adminMenu()
+    {
+        return [
+            ['label'=>'Users', 'url'=>['/user/admin'], 'icon'=>'fa fa-user']
+        ];        
+    }
+    
     
 }

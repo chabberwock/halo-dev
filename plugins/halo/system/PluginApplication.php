@@ -15,15 +15,39 @@ trait PluginApplication
     protected function loadPluginConfigs($configName)
     {
         $config = [];
-        foreach (glob($this->pluginPath . '/*', GLOB_ONLYDIR) as $vendorPath) {
-            \Yii::setAlias(basename($vendorPath), $vendorPath);
-            foreach (glob($vendorPath .'/*', GLOB_ONLYDIR) as $pluginPath) {
+        if (count($this->pluginManager->activePlugins) > 0)
+        {
+            foreach ($this->pluginManager->activePlugins as $pluginId) {
+                $namespace = explode('.', $pluginId)[0];
+                $pluginPath = $this->pluginManager->pluginPath . DIRECTORY_SEPARATOR . str_replace('.',DIRECTORY_SEPARATOR, $pluginId);
+                Yii::setAlias($namespace, dirname($pluginPath));
                 if (is_file($pluginPath . $configName)) {
                     $config = ArrayHelper::merge($config, require($pluginPath . $configName));
                 }
             }
         }
         return $config;
+    }
+    
+    protected function initPluginManager($userConfig)
+    {
+        if (isset($userConfig['components'], $userConfig['components']['pluginManager'])) {
+            $definition = $userConfig['components']['pluginManager'];
+        } else {
+            $definition = ['class' => 'halo\system\PluginManager'];
+        }
+
+        if (!isset($definition['pluginPath'])) {
+            $definition['pluginPath'] = $userConfig['basePath'] . DIRECTORY_SEPARATOR . 'plugins';
+        }
+
+        if (!isset($definition['runtimePath'])) {
+            $definition['runtimePath'] = $userConfig['runtimePath'];
+        }
+        
+        $this->setComponents([
+            'pluginManager' => $definition
+        ]);
     }
     
 }

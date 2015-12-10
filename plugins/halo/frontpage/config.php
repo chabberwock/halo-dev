@@ -5,9 +5,9 @@
 */
 
 return [
-    'defaultRoute' => '/halo-frontpage/default',
+    'defaultRoute' => '/halo.frontpage/default',
     'modules' => [
-        'halo-frontpage' => [
+        'halo.frontpage' => [
             'class' => 'halo\frontpage\Module'
         ]
     ]

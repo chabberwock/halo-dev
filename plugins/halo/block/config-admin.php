@@ -6,7 +6,7 @@
 
 return [
     'modules' => [
-        'halo-block-admin' => [
+        'halo.block.admin' => [
             'class' => 'halo\block\admin\Module',
         ]    
     ]

@@ -6,7 +6,7 @@
 
 return [
     'modules' => [
-        'halo-page' => [
+        'halo.page' => [
             'class' => 'halo\page\Module'
         ]
     ],

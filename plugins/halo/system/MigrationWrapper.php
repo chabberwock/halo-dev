@@ -4,7 +4,7 @@
 * Email: notengine@gmail.com
 */
 
-namespace halo\admin;
+namespace halo\system;
 
 class MigrationWrapper extends \yii\console\controllers\MigrateController
 {

@@ -1,13 +1,13 @@
 <?php
 
 $haloTemp = [
-    'bootstrap' => ['log','themeManager','system'],
+    'bootstrap' => ['log','themeManager','halo.system'],
     'components' => [
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             'showScriptName' => false,
             'enablePrettyUrl' => true,  
-        ], 
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -32,10 +32,10 @@ $haloTemp = [
         ],
     ],
     'modules' => [
-        'system' => [
+        'halo.system' => [
             'class' => 'halo\system\Module'
         ],
-        'admin' => [
+        'halo.admin' => [
             'class' => 'halo\admin\Module'
         ],
         'redactor' => 'yii\redactor\RedactorModule',        
