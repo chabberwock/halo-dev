@@ -15,9 +15,9 @@ class HeaderMenu extends Menu
 
     public function init()
     {
-        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
-            $this->items = ArrayHelper::merge($this->items, Yii::$app->getModule($pluginId)->headerMenu());
-        }
+        $event = new \halo\admin\events\MainMenu();
+        Yii::$app->trigger('halo.admin.mainMenu', $event);
+        $this->items = $event->items;
     }
 }  
 ?>

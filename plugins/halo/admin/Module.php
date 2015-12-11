@@ -4,6 +4,7 @@ namespace halo\admin;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use halo\admin\events\MainMenu;
 
 class Module extends \halo\system\BasePlugin
 {
@@ -26,24 +27,9 @@ class Module extends \halo\system\BasePlugin
     }
     
     
-    public function headerMenu()
+    public function onAdminMainMenu(MainMenu $event)
     {
-        return [
-            ['label'=>'Plugins', 'url'=>['/halo.admin/plugin/index'], 'icon'=>'fa fa-cogs']
-        ];
-    }
-    
-    public function menuItems()
-    {
-        return [
-            ['label'=>'Plugins', 'icon'=>'fa fa-cogs', 'url'=>['/halo.admin/plugin/index'],
-                'items' => [
-                    ['label'=>'Active', 'url'=>['/halo.admin/plugin/index']],
-                    ['label'=>'Inactive', 'url'=>['/halo.admin/plugin/inactive']],
-                    ['label'=>'Install', 'url'=>['/halo.admin/plugin/install']],
-                ]
-            ]
-        ];
+        $event->items[] = ['label'=>'Plugins', 'url'=>['/halo.admin/plugin/index'], 'icon'=>'fa fa-cogs'];
     }
     
 }
