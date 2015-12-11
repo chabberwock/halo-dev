@@ -7,7 +7,8 @@ use yii\helpers\ArrayHelper;
 
 class Module extends \halo\system\BasePlugin
 {
-    public $mainMenu = [];
+    public $sidebarMenu = [];
+    
     public function init()
     {
         $config = [];
@@ -18,38 +19,31 @@ class Module extends \halo\system\BasePlugin
                 $config = ArrayHelper::merge($config, require($pluginPath . '/config-admin.php'));
             }
         }
-//        foreach (glob(Yii::$app->pluginPath . '/*', GLOB_ONLYDIR) as $vendorPath) {
-//            Yii::setAlias(basename($vendorPath), $vendorPath);
-//            foreach (glob($vendorPath .'/*', GLOB_ONLYDIR) as $pluginPath) {
-//                if (file_exists($pluginPath . '/config-admin.php')) {
-//                    $config = ArrayHelper::merge($config, require($pluginPath . '/config-admin.php'));
-//                }
-//            }
-//        }
         Yii::configure($this, $config);
         Yii::$app->layoutPath = '@halo/admin/views/layouts';        
         parent::init();
         // custom initialization code goes here
     }
     
+    
+    public function headerMenu()
+    {
+        return [
+            ['label'=>'Plugins', 'url'=>['/halo.admin/plugin/index'], 'icon'=>'fa fa-cogs']
+        ];
+    }
+    
     public function menuItems()
     {
         return [
-            ['label'=>'Plugins', 'icon'=>'fa fa-cogs', 'url'=>['/halo.admin/plugin/index']]
+            ['label'=>'Plugins', 'icon'=>'fa fa-cogs', 'url'=>['/halo.admin/plugin/index'],
+                'items' => [
+                    ['label'=>'Active', 'url'=>['/halo.admin/plugin/index']],
+                    ['label'=>'Inactive', 'url'=>['/halo.admin/plugin/inactive']],
+                    ['label'=>'Install', 'url'=>['/halo.admin/plugin/install']],
+                ]
+            ]
         ];
     }
-    
-    public function pluginInfo()
-    {
-        return [
-            'name' => 'Admin',
-            'description' => 'Provides admin panel support',
-            'build' => 1,
-            'author' => 'Alexandr Makarov',
-            'icon' => 'fa fa-cogs',
-            'homepage' => 'https://github.com/chabberwock/halo-dev'
-        ];
-    }
-    
     
 }

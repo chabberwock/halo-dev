@@ -1,0 +1,9 @@
+{
+    "id": "halo.user",
+    "name": "Users",
+    "build": 1,
+    "description": "Users plugin, based on dektrium/yii2-user module",
+    "author": "Alexandr Makarov",
+    "icon": "fa fa-user",
+    "homepage": "https://github.com/chabberwock/halo-dev"
+}

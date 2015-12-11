@@ -11,18 +11,6 @@ class Plugin extends \halo\system\BasePlugin
         // custom initialization code goes here
     }
     
-    public function pluginInfo()
-    {
-        return [
-            'name' => 'Users',
-            'description' => 'Users plugin, based on dektrium/yii2-user module',
-            'build' => 1,
-            'author' => 'Alexandr Makarov',
-            'icon' => 'fa fa-user',
-            'homepage' => 'https://github.com/chabberwock/halo-dev'
-        ];
-    }
-    
     public function migrationsPath()
     {
         return [
@@ -31,11 +19,11 @@ class Plugin extends \halo\system\BasePlugin
         ];
     }
     
-    public function adminMenu()
+    public function headerMenu()
     {
         return [
             ['label'=>'Users', 'url'=>['/user/admin'], 'icon'=>'fa fa-user']
-        ];        
+        ];
     }
     
     

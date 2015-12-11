@@ -7,19 +7,7 @@ class Module extends BasePlugin
 {
     public $controllerNamespace = 'halo\page\controllers';
 
-    public function pluginInfo()
-    {
-        return [
-            'name' => 'Pages',
-            'build' => 1,
-            'description' => 'Manage website pages',
-            'author' => 'Alexandr Makarov',
-            'icon' => 'fa fa-file-text',
-            'homepage' => 'https://github.com/chabberwock/halo-dev'
-        ];
-    }
-    
-    public function adminMenu()
+    public function headerMenu()
     {
         return [
             ['label'=>'Pages', 'url'=>['/halo.admin/halo.page.admin'], 'icon'=>'fa fa-home']

@@ -1,0 +1,9 @@
+{
+    "id": "halo.block",
+    "name": "Blocks",
+    "build": 1,
+    "description": "Manage website blocks",
+    "author": "Alexandr Makarov",
+    "icon": "fa fa-th",
+    "homepage": "https://github.com/chabberwock/halo-dev"
+}
