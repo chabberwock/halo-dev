@@ -12,10 +12,8 @@ class PluginController extends \yii\web\Controller
 
     public function init()
     {
-        Yii::$app->getModule('halo.admin')->sidebarMenu = [
-            ['label'=>'Dashboard', 'icon'=>'fa fa-home', 'url'=>['/halo.admin/plugin/index']],
-            ['label'=>'Manage', 'icon'=>'fa fa-wrench', 'url'=>'#', 'items' => $this->activePluginsMenu()],
-        ];
+        // Render settings menu on every controller action
+        \Yii::$app->getModule('halo.admin')->settingsMenu();
     }
     
     public function actionDisable()

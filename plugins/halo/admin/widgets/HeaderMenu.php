@@ -15,7 +15,7 @@ class HeaderMenu extends Menu
 
     public function init()
     {
-        $event = new \halo\admin\events\MainMenu();
+        $event = new \halo\admin\events\Menu();
         Yii::$app->trigger('halo.admin.mainMenu', $event);
         $this->items = $event->items;
     }

@@ -12,7 +12,7 @@ namespace halo\admin\events;
 
 use \yii\base\Event;
 
-class MainMenu extends Event
+class Menu extends Event
 {
     public $items = [];
 }

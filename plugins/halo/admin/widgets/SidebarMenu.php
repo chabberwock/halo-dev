@@ -14,7 +14,7 @@ class SidebarMenu extends Menu
 
     public function init()
     {
-        $this->items = Yii::$app->getModule('halo.admin')->sidebarMenu;
+        $this->items = isset($this->view->params['sidebarMenu']) ? $this->view->params['sidebarMenu'] : [];
     }
 }  
 ?>

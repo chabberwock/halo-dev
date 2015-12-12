@@ -1,7 +1,7 @@
 <?php
 
 namespace halo\user;
-use halo\admin\events\MainMenu;
+use halo\admin\events\Menu;
 
 class Plugin extends \halo\system\BasePlugin
 {
@@ -20,14 +20,7 @@ class Plugin extends \halo\system\BasePlugin
         ];
     }
     
-    public function headerMenu()
-    {
-        return [
-            ['label'=>'Users', 'url'=>['/user/admin'], 'icon'=>'fa fa-user']
-        ];
-    }
-    
-    public function onAdminMainMenu(MainMenu $event)
+    public function onAdminMainMenu(Menu $event)
     {
         $event->items[] = ['label'=>'Users', 'url'=>['/user/admin'], 'icon'=>'fa fa-user'];
     }

@@ -1,6 +1,8 @@
 <?php
 
 namespace halo\frontpage;
+
+use halo\admin\events\Menu;
 use halo\system\BasePlugin;
 
 class Module extends BasePlugin
@@ -13,10 +15,8 @@ class Module extends BasePlugin
         // custom initialization code goes here
     }
     
-    public function headerMenu()
+    public function onAdminContentMenu(Menu $event)
     {
-        return [
-            ['label'=>'Front Page', 'url'=>['/halo.admin/halo.frontpage.admin'], 'icon'=>'fa fa-home']
-        ];
+        $event->items[] = ['label'=>'Frontpage', 'url'=>['/halo.admin/halo.frontpage.admin/default/index'], 'icon'=>'fa fa-cog'];
     }
 }

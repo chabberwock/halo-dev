@@ -1,10 +1,8 @@
 <?php
 
-namespace halo\frontpage\admin\controllers;
+namespace halo\admin\controllers;
 
-use yii\web\Controller;
-
-class DefaultController extends Controller
+class ContentController extends \yii\web\Controller
 {
 
     public function init()
@@ -12,9 +10,10 @@ class DefaultController extends Controller
         // Render settings menu on every controller action
         \Yii::$app->getModule('halo.admin')->contentMenu();
     }
-    
+
     public function actionIndex()
     {
         return $this->render('index');
     }
+
 }
