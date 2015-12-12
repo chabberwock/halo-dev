@@ -25,7 +25,7 @@ class Module extends BasePlugin
     * 
     * @param string $route
     */
-    public function setFrontpageRoute($route)
+    public function setRoute($route)
     {
         $this->runtimeConfig = ['defaultRoute' => $route];
     }

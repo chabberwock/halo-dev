@@ -16,8 +16,6 @@ class DefaultController extends Controller
     
     public function actionIndex()
     {
-        $defaultRoute = '/halo.page/default/index';
-        Yii::$app->getModule('halo.frontpage')->setRuntimeConfig(['defaultRoute'=>$defaultRoute]);
         return $this->render('index');
     }
 }
