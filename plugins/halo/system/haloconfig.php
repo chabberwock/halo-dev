@@ -12,7 +12,7 @@ $haloTemp = [
             'class' => 'yii\caching\FileCache',
         ],
         'errorHandler' => [
-            'errorAction' => '/system/default/error',
+            'errorAction' => '/halo.system/default/error'
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
