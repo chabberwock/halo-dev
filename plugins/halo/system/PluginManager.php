@@ -14,7 +14,7 @@ class PluginManager extends \yii\base\Component
     public $runtimePath;
     public $pluginPath;
 
-    private $_systemPlugins = ['halo.system', 'halo.admin', 'halo.user', 'halo.frontpage'];
+    public  $systemPlugins = ['halo.system', 'halo.admin', 'halo.user', 'halo.frontpage'];
     private $configFile;
     private $_activePlugins;
     
@@ -62,7 +62,7 @@ class PluginManager extends \yii\base\Component
     
     public function getActivePlugins()
     {
-        return ArrayHelper::merge($this->_activePlugins, $this->_systemPlugins);
+        return ArrayHelper::merge($this->_activePlugins, $this->systemPlugins);
     }
     
     public function activate($pluginId)
