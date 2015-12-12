@@ -31,5 +31,5 @@ phpunit.phar
 
 #installer
 
-/install/runtime
-/install/assets
+/install/runtime/*
+/install/assets/*
