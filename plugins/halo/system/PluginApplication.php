@@ -25,6 +25,18 @@ trait PluginApplication
                     $config = ArrayHelper::merge($config, require($pluginPath . $configName));
                 }
             }
+
+            // Now load runtime plugin configs, they can override base configs
+            foreach ($this->pluginManager->activePlugins as $pluginId) {
+                $pluginRuntimeConfig = $this->pluginManager->runtimePath 
+                    . DIRECTORY_SEPARATOR . 'halo' . DIRECTORY_SEPARATOR . 'plugins' 
+                    . DIRECTORY_SEPARATOR . str_replace('.',DIRECTORY_SEPARATOR, $pluginId) 
+                    . $configName;
+                if (is_file($pluginRuntimeConfig)) {
+                    $config = ArrayHelper::merge($config, require($pluginRuntimeConfig));
+                }
+            }
+            
         }
         return $config;
     }
