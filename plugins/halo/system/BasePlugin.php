@@ -5,6 +5,8 @@
 */
 
 namespace halo\system;
+use yii\helpers\FileHelper;
+use Yii;
 
 abstract class BasePlugin extends \yii\base\Module
 {
@@ -31,6 +33,34 @@ abstract class BasePlugin extends \yii\base\Module
     public function headerMenu()
     {
         return [];    
+    }
+    
+    public function setRuntimeConfig($config)
+    {
+        $path = $this->runtimeConfigDir();
+        if (!is_dir($path)) {
+            FileHelper::createDirectory($path);
+        }
+        $data = '<?php ' . "\nreturn " . var_export($config, true)  . ';';
+        file_put_contents($path . DIRECTORY_SEPARATOR . 'config.php', $data);
+    }
+    
+    public function getRuntimeConfig()
+    {
+        $configFile = $this->runtimeConfigDir() . DIRECTORY_SEPARATOR . 'config.php';
+        if (is_file($conigFile)) {
+            return require($configFile);
+        } else {
+            return [];
+        }
+    }
+    
+    private function runtimeConfigDir() 
+    {
+        return Yii::$app->runtimePath . DIRECTORY_SEPARATOR 
+            . 'halo' . DIRECTORY_SEPARATOR 
+            . 'plugins' . DIRECTORY_SEPARATOR
+            . str_replace('.', DIRECTORY_SEPARATOR, $this->id);
     }
     
     

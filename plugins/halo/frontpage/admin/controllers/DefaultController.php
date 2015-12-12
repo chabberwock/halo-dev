@@ -3,6 +3,7 @@
 namespace halo\frontpage\admin\controllers;
 
 use yii\web\Controller;
+use Yii;
 
 class DefaultController extends Controller
 {

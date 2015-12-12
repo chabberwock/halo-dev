@@ -19,4 +19,14 @@ class Module extends BasePlugin
     {
         $event->items[] = ['label'=>'Frontpage', 'url'=>['/halo.admin/halo.frontpage.admin/default/index'], 'icon'=>'fa fa-cog'];
     }
+    
+    /**
+    * Sets route as default website route
+    * 
+    * @param string $route
+    */
+    public function setRoute($route)
+    {
+        $this->runtimeConfig = ['defaultRoute' => $route];
+    }
 }
