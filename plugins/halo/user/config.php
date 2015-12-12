@@ -35,6 +35,9 @@ return [
             'bootstrap' => 'dektrium\\user\\Bootstrap',
           ),
     ],
+    'bootstrap' => [
+        'halo\user\Bootstrap'
+    ],
     'modules' => [
         'halo.user' => [
                 'class' => 'halo\user\Plugin',

@@ -38,7 +38,19 @@ class PluginManager extends \yii\base\Component
 
         foreach (glob($this->pluginPath . '/*', GLOB_ONLYDIR) as $vendorPath) {
             foreach (glob($vendorPath .'/*', GLOB_ONLYDIR) as $pluginPath) {
-                $this->_availablePlugins[] = basename($vendorPath) . '.' . basename($pluginPath);
+                $pluginInfoFile = $pluginPath . '/plugin.json';
+                if (!is_file($pluginInfoFile)) {
+                    // not plugin
+                    continue;
+                }
+                $pluginId = basename($vendorPath) . '.' . basename($pluginPath);
+                $pluginInfo = json_decode(file_get_contents($pluginInfoFile), true);
+                if ($pluginInfo === null) {
+                    // something wrong, can not read plugin.json
+                    continue;
+                }
+                $this->_availablePlugins[$pluginId] = $pluginInfo;
+                
             }
         }
     }
@@ -74,7 +86,7 @@ class PluginManager extends \yii\base\Component
     
     protected function export()
     {
-        $fileData = '<?php ' . "\n return" . var_export($this->_activePlugins, true) . ';';
+        $fileData = '<?php ' . "\n return " . var_export($this->_activePlugins, true) . ';';
         file_put_contents($this->configFile, $fileData);    
     }
     

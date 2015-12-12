@@ -2,28 +2,17 @@
 
 namespace halo\page;
 use halo\system\BasePlugin;
+use halo\admin\events\Menu;
 
 class Module extends BasePlugin
 {
     public $controllerNamespace = 'halo\page\controllers';
 
-    public function pluginInfo()
+    public static function onAdminContentMenu(Menu $event)
     {
-        return [
-            'name' => 'Pages',
-            'build' => 1,
-            'description' => 'Manage website pages',
-            'author' => 'Alexandr Makarov',
-            'icon' => 'fa fa-file-text',
-            'homepage' => 'https://github.com/chabberwock/halo-dev'
-        ];
-    }
-    
-    public function adminMenu()
-    {
-        return [
-            ['label'=>'Pages', 'url'=>['/halo.admin/halo.page.admin'], 'icon'=>'fa fa-home']
-        ];        
+        $event->items[] = ['label'=>'Pages', 'options' =>['class'=>'header']];        
+        $event->items[] = ['label'=>'New Page',  'url'=>['/halo.admin/halo.page.admin/default/create'], 'icon'=>'fa fa-plus'];
+        $event->items[] = ['label'=>'All Pages', 'url'=>['/halo.admin/halo.page.admin/default/index'], 'icon'=>'fa fa-files-o'];
     }
     
     public function init()
@@ -32,6 +21,14 @@ class Module extends BasePlugin
 
         // custom initialization code goes here
     }
+
+    public function migrationsPath()
+    {
+        return [
+            $this->basePath . '/migrations'
+        ];
+    }
+    
     
     
     

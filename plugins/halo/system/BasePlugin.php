@@ -14,14 +14,21 @@ abstract class BasePlugin extends \yii\base\Module
     * @returns [] plugin information
     * 
     */
-    abstract public function pluginInfo();
+    public function pluginInfo()
+    {
+        $infoFile = $this->basePath . '/plugin.json';
+        if (is_file($infoFile) && ($info = json_decode(file_get_contents($infoFile), true)) !== null) {
+            return $info;
+        }
+        return [];
+    }
     
     public function migrationsPath()
     {
-        return $this->getBasePath() . '/migrations';
+        return []; //$this->getBasePath() . '/migrations';
     }
     
-    public function adminMenu()
+    public function headerMenu()
     {
         return [];    
     }

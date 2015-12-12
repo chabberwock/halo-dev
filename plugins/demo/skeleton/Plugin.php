@@ -14,15 +14,4 @@ class Plugin extends BasePlugin
         // custom initialization code goes here
     }
     
-    public function pluginInfo()
-    {
-        return [
-            'name' => 'Skeleton plugin',
-            'description' => 'Just a demo plugin',
-            'build' => 1,
-            'author' => 'Alexandr Makarov',
-            'icon' => 'fa fa-gift',
-            'homepage' => 'https://github.com/chabberwock/halo-dev'
-        ];
-    }
 }

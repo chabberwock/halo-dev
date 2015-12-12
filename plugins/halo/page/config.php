@@ -5,6 +5,7 @@
 */
 
 return [
+    'bootstrap' => ['halo\page\Bootstrap'],
     'modules' => [
         'halo.page' => [
             'class' => 'halo\page\Module'

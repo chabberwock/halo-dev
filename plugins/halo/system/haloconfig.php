@@ -1,7 +1,7 @@
 <?php
 
 $haloTemp = [
-    'bootstrap' => ['log','themeManager','halo.system'],
+    'bootstrap' => ['log','themeManager','halo\system\Bootstrap', 'halo\admin\Bootstrap'],
     'components' => [
         'urlManager' => [
             'class' => 'yii\web\UrlManager',

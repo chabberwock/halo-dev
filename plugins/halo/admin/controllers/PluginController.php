@@ -10,18 +10,12 @@ use Yii;
 class PluginController extends \yii\web\Controller
 {
 
-    public function behaviors()
+    public function init()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'migrate' => ['post'],
-                ],
-            ],
-        ];
+        // Render settings menu on every controller action
+        \Yii::$app->getModule('halo.admin')->settingsMenu();
     }
-
+    
     public function actionDisable()
     {
         return $this->render('disable');
@@ -29,7 +23,38 @@ class PluginController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        return $this->render('index', ['plugins'=>$this->getPlugins()]);
+        $plugins = [];
+        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
+            $plugins[$pluginId] = Yii::$app->getModule($pluginId)->pluginInfo();
+        }
+        $available = [];
+        foreach (Yii::$app->pluginManager->availablePlugins as $pluginId=>$info) {
+            if (in_array($pluginId, Yii::$app->pluginManager->activePlugins)) {
+                // skip installed plugins
+                continue;
+            }
+            
+            $available[$pluginId] = $info;
+        }
+        
+        return $this->render('index', ['plugins'=>$plugins, 'available'=>$available]);
+    }
+    
+    public function actionInstall($id)
+    {
+        Yii::$app->pluginManager->activate($id);
+        $this->redirect(['/halo.admin/plugin/migrate','key'=>$id]);
+    }
+    
+    public function activePluginsMenu()
+    {
+        $pluginLinks = [];
+        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
+            $info = Yii::$app->getModule($pluginId)->pluginInfo();
+            $pluginLinks[] = ['label' => '<i class="' .$info['icon'].'"></i> ' . $info['name'], 'url'=>['/halo.admin/plugin/manage', 'id'=>$pluginId], 'encode'=>false];
+        }
+        return $pluginLinks;
+        
     }
     
     private function getPlugins()
@@ -42,11 +67,17 @@ class PluginController extends \yii\web\Controller
         return $plugins;
     }
     
-    public function actionView($key)
+    public function actionManage($id)
     {
-        $plugins = $this->getPlugins();
-        $plugin = $plugins[$key];
-        return $this->render('view', ['plugin'=>$plugin, 'key'=>$key]);
+        $plugin = Yii::$app->getModule($id);
+        $info = $plugin->pluginInfo();
+        
+        $changelog = '';
+        if (is_file($plugin->basePath . '/CHANGELOG.md')) {
+            $md = new \cebe\markdown\GithubMarkdown();
+            $changelog = $md->parse(file_get_contents($plugin->basePath . '/CHANGELOG.md'));
+        }
+        return $this->render('manage', ['info'=>$info, 'changelog'=>$changelog, 'id'=>$id]);
     }
     
     public function actionMigrate($key)

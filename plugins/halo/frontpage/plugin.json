@@ -1,0 +1,9 @@
+{
+    "id": "halo.frontpage",
+    "name": "Pages",
+    "build": 1,
+    "description": "Manage frontpage",
+    "author": "Alexandr Makarov",
+    "icon": "fa fa-home",
+    "homepage": "https://github.com/chabberwock/halo-dev"
+}

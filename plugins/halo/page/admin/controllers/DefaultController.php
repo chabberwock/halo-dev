@@ -14,6 +14,13 @@ use yii\filters\VerbFilter;
  */
 class DefaultController extends Controller
 {
+
+    public function init()
+    {
+        // Render settings menu on every controller action
+        \Yii::$app->getModule('halo.admin')->contentMenu();
+    }
+
     public function behaviors()
     {
         return [
