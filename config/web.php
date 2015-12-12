@@ -4,6 +4,8 @@ $basePath =  dirname(__DIR__);
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    'defaultRoute' => '/phplego.kotlinsite/default',
+
     'id' => 'basic',
     'basePath' => $basePath,
     'runtimePath' => $basePath . '/runtime',
