@@ -5,11 +5,31 @@ namespace halo\admin;
 use Yii;
 use yii\helpers\ArrayHelper;
 use halo\admin\events\Menu;
+use yii\filters\AccessControl;
 
 class Module extends \halo\system\BasePlugin
 {
     public $sidebarMenu = [];
     
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function () {
+                            return Yii::$app->user->identity->getIsAdmin();
+                        },
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function init()
     {
         $config = [];
@@ -21,7 +41,7 @@ class Module extends \halo\system\BasePlugin
             }
         }
         Yii::configure($this, $config);
-        Yii::$app->layoutPath = '@halo/admin/views/layouts';        
+        Yii::$app->layoutPath = '@halo/admin/views/layouts';       
         parent::init();
         // custom initialization code goes here
     }
