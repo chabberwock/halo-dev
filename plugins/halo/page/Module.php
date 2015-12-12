@@ -21,6 +21,14 @@ class Module extends BasePlugin
 
         // custom initialization code goes here
     }
+
+    public function migrationsPath()
+    {
+        return [
+            $this->basePath . '/migrations'
+        ];
+    }
+    
     
     
     

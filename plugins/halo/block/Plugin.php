@@ -20,4 +20,13 @@ class Plugin extends \halo\system\BasePlugin
         $event->items[] = ['label'=>'Content Blocks', 'url'=>['/halo.admin/halo.block.admin/default/index'], 'icon'=>'fa fa-th'];
     }
     
+    public function migrationsPath()
+    {
+        return [
+            $this->basePath . '/migrations'
+        ];
+    }
+    
+    
+    
 }
