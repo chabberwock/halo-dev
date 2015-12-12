@@ -20,7 +20,7 @@ class Plugin extends \halo\system\BasePlugin
         ];
     }
     
-    public function onAdminMainMenu(Menu $event)
+    public static function onAdminMainMenu(Menu $event)
     {
         $event->items[] = ['label'=>'Users', 'url'=>['/user/admin'], 'icon'=>'fa fa-user'];
     }

@@ -2,6 +2,8 @@
 
 namespace halo\block;
 
+use halo\admin\events\Menu;
+
 class Plugin extends \halo\system\BasePlugin
 {
     public $controllerNamespace = 'halo\block\controllers';
@@ -13,11 +15,9 @@ class Plugin extends \halo\system\BasePlugin
         // custom initialization code goes here
     }
     
-    public function headerMenu()
+    public static function onAdminContentMenu(Menu $event)
     {
-        return [
-            ['label'=>'HTML Blocks', 'url'=>['/halo.admin/halo.block.admin'], 'icon'=>'fa fa-th']
-        ];        
+        $event->items[] = ['label'=>'Content Blocks', 'url'=>['/halo.admin/halo.block.admin/default/index'], 'icon'=>'fa fa-th'];
     }
     
 }

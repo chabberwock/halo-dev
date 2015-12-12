@@ -15,7 +15,7 @@ class Module extends BasePlugin
         // custom initialization code goes here
     }
     
-    public function onAdminContentMenu(Menu $event)
+    public static function onAdminContentMenu(Menu $event)
     {
         $event->items[] = ['label'=>'Frontpage', 'url'=>['/halo.admin/halo.frontpage.admin/default/index'], 'icon'=>'fa fa-cog'];
     }

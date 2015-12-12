@@ -8,7 +8,7 @@ class Module extends BasePlugin
 {
     public $controllerNamespace = 'halo\page\controllers';
 
-    public function onAdminContentMenu(Menu $event)
+    public static function onAdminContentMenu(Menu $event)
     {
         $event->items[] = ['label'=>'Pages', 'options' =>['class'=>'header']];        
         $event->items[] = ['label'=>'New Page',  'url'=>['/halo.admin/halo.page.admin/default/create'], 'icon'=>'fa fa-plus'];

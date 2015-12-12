@@ -27,7 +27,7 @@ class Module extends \halo\system\BasePlugin
     }
     
     
-    public function onAdminMainMenu(Menu $event)
+    public static function onAdminMainMenu(Menu $event)
     {
         $event->items[] = ['label'=>'Content', 'url'=>['/halo.admin/content/index'], 'icon'=>'fa fa-th'];
         $event->items[] = ['label'=>'Settings', 'url'=>['/halo.admin/settings/index'], 'icon'=>'fa fa-cogs'];
