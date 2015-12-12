@@ -4,7 +4,7 @@
 * Email: notengine@gmail.com
 */
 
-namespace app\models;
+namespace halo\system\install;
 
 class DbConfig extends \yii\base\Model
 {
