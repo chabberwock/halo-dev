@@ -10,6 +10,7 @@ use yii\filters\AccessControl;
 class Module extends \halo\system\BasePlugin
 {
     public $sidebarMenu = [];
+    public $defaultRoute = 'content';
     
 
     public function behaviors()
@@ -57,17 +58,14 @@ class Module extends \halo\system\BasePlugin
     {
         $menuEvent = new Menu;
         $menuEvent->items[] = ['label'=>'Dashboard', 'url'=>['/halo.admin/settings/index'], 'icon'=>'fa fa-home'];
+
+        Yii::$app->trigger('halo.admin.settingsMenu', $menuEvent);
+
         $menuEvent->items[] = ['label'=>'PLUGINS', 'options' =>['class'=>'header']];        
         
         $menuEvent->items[] = ['label'=>'Overview', 'icon'=>'fa fa-home', 'url'=>['/halo.admin/plugin/index']];
         $menuEvent->items[] = ['label'=>'Manage', 'icon'=>'fa fa-wrench', 'url'=>'#', 'items' => $this->activePluginsMenu()];
         
-        Yii::$app->trigger('halo.admin.settingsMenu', $menuEvent);
-
-        $menuEvent->items[] = ['label'=>'DEVELOPER TOOLS', 'options' =>['class'=>'header']];        
-        $menuEvent->items[] = ['label'=>'Gii', 'url'=>['/gii'], 'icon'=>'fa fa-cog'];        
-        $menuEvent->items[] = ['label'=>'Extensions', 'url'=>['/halo.admin/settings/extensions'], 'icon'=>'fa fa-info'];        
-
         Yii::$app->view->params['sidebarMenu'] = $menuEvent->items;
     }
     

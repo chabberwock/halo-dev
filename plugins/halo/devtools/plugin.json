@@ -1,0 +1,9 @@
+{
+    "id": "halo.devtools",
+    "name": "Developer tools",
+    "build": 1,
+    "description": "Helps develop halo plugins",
+    "author": "Alexandr Makarov",
+    "icon": "fa fa-cog",
+    "homepage": "https://github.com/chabberwock/halo-dev"
+}

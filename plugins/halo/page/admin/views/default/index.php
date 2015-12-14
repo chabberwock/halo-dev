@@ -12,29 +12,33 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a(Yii::t('halo/page', 'Create Page'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'uri',
+            [
+                'attribute' => 'id',
+                'contentOptions' => ['class' => 'col-md-1']
+            ],
             'title',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'updated_at',
+                'contentOptions' => ['class' => 'col-md-2'],
+                'value' => function ($model) {
+                    return date("Y-m-d H:i:s", $model->updated_at);
+                }
+            ],
             // 'html:ntext',
             // 'meta_keywords',
             // 'meta_description',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',   
+                'contentOptions' => ['class' => 'col-md-1'],
+            
+            ],
         ],
     ]); ?>
 
