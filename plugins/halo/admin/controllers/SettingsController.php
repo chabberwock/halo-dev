@@ -18,9 +18,4 @@ class SettingsController extends \yii\web\Controller
         return $this->render('index');
     }
     
-    public function actionExtensions()
-    {
-        return $this->render('extensions', ['extensions'=>Yii::$app->extensions]);
-    }
-
 }

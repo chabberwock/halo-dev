@@ -28,8 +28,5 @@ phpunit.phar
 
 /runtime
 /assets/*
+/content/*
 
-#installer
-
-/install/runtime/*
-/install/assets/*

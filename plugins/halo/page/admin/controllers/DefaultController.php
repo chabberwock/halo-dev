@@ -54,10 +54,9 @@ class DefaultController extends Controller
      * @return mixed
      */
     public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+    {       
+        $model = $this->findModel($id);
+        return $this->redirect(['/halo.page/default/index','uri'=> $model->uri]);
     }
 
     /**
@@ -68,9 +67,11 @@ class DefaultController extends Controller
     public function actionCreate()
     {
         $model = new Page();
+        $model->created_at = time();
+        $model->updated_at = time();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect('index');
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -87,9 +88,10 @@ class DefaultController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->updated_at = time();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect('index');
         } else {
             return $this->render('update', [
                 'model' => $model,

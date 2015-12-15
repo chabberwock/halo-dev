@@ -9,9 +9,6 @@ return [
         'admin' => 'halo\admin\Module',
     ],
     'components' => [
-        'pluginManager' => [
-           'class' => 'halo\system\PluginManager'
-        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
