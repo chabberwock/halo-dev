@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 use Yii;
 
 require __DIR__ . '/PluginApplication.php';
+require __DIR__ . '/PluginManager.php';
 
 class ConsoleApplication extends \yii\console\Application
 {
@@ -20,7 +21,7 @@ class ConsoleApplication extends \yii\console\Application
         $cfg = ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config-console.php'), $config);
         $file = $cfg['vendorPath'] . '/yiisoft/extensions.php';
         $extensions = is_file($file) ? include($file) : [];
-        if (is_array($cfg['extensions'])) {
+        if (isset($cfg['extensions']) && is_array($cfg['extensions'])) {
             $cfg['extensions'] = ArrayHelper::merge($extensions, $cfg['extensions']);    
         } else {
             $cfg['extensions'] = $extensions;

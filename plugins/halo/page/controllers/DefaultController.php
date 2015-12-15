@@ -13,6 +13,12 @@ class DefaultController extends Controller
         if ($page === null) {
             throw new \yii\web\HttpException(404, 'Not found');
         }
+        if ($page->status != 1) {
+            throw new \yii\web\HttpException(404, 'Not found');
+        }
+        $this->layout = $page->layout;
+        
+        
         return $this->render('index', ['page'=>$page]);
     }
 }

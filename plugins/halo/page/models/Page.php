@@ -18,6 +18,8 @@ use Yii;
  */
 class Page extends \yii\db\ActiveRecord
 {
+    const EVENT_COLLECT_MODELS = 'halo.page.collectModels';
+    
     /**
      * @inheritdoc
      */
@@ -33,9 +35,9 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'updated_at'], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
+            [['created_at', 'updated_at', 'status'], 'integer'],
             [['html'], 'string'],
-            [['uri', 'title'], 'string', 'max' => 250],
+            [['uri', 'title', 'layout'], 'string', 'max' => 250],
             ['uri','unique'],
             [['meta_keywords', 'meta_description'], 'string', 'max' => 1024]
         ];
@@ -57,4 +59,5 @@ class Page extends \yii\db\ActiveRecord
             'meta_description' => Yii::t('halo/page', 'Meta Description'),
         ];
     }
+    
 }

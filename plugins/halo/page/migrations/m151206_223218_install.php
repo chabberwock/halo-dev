@@ -13,12 +13,16 @@ class m151206_223218_install extends Migration
             'id' => $this->primaryKey(),
             'uri' => $this->string(250)->notNull()->unique(),
             'title' => $this->string(250)->notNull(),
+            'layout' => $this->string(250)->notNull(),
+            'status' => $this->integer(1),
             'created_at' => $this->integer(11)->notNull(),
             'updated_at' => $this->integer(11)->notNull(),
             'html' => $this->text()->notNull(),
             'meta_keywords' => $this->string(1024)->notNull(),
             'meta_description' => $this->string(1024)->notNull(),
         ]);
+        
+        
     }
 
     public function down()

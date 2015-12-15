@@ -8,7 +8,7 @@ $db = require(__DIR__ . '/db.php');
 
 return [
     'id' => 'basic-console',
-    'basePath' => $basePath . '/app',
+    'basePath' => $basePath,
     'runtimePath' => $basePath . '/runtime',
     'vendorPath' => $basePath . '/vendor',  
     'pluginPath' => $basePath . '/plugins',  

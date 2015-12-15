@@ -38,7 +38,15 @@ $haloTemp = [
         'halo.admin' => [
             'class' => 'halo\admin\Module'
         ],
-        'redactor' => 'yii\redactor\RedactorModule',        
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => '@webroot/content',
+            'uploadUrl' => '@web/content',
+            'imageAllowExtensions'=>['jpg','png','gif','svg','jpeg'],
+            'widgetClientOptions' => [
+                'plugins' => ['imagemanager','source','codemirror']            
+            ],
+        ],        
     ],
 
 ];

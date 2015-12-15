@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9f0f8951d7f0606bcaf909a10b3cbae0",
-    "content-hash": "896b9d7580ef59948827089848fb17f2",
+    "hash": "00f688c82703b7a3fe365e5ffecb47ce",
+    "content-hash": "75be3d108fad2a7e7379e68cab3c3984",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -517,6 +517,57 @@
             "time": "2013-11-30 08:25:19"
         },
         {
+            "name": "mihaildev/yii2-ckeditor",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MihailDev/yii2-ckeditor.git",
+                "reference": "d20aa7f6bcf610fee226d6eb15212a279875bf87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MihailDev/yii2-ckeditor/zipball/d20aa7f6bcf610fee226d6eb15212a279875bf87",
+                "reference": "d20aa7f6bcf610fee226d6eb15212a279875bf87",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mihaildev\\ckeditor\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Mihail",
+                    "email": "mihail.kucher@gmail.com",
+                    "homepage": "https://github.com/MihailDev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii2 CKEditor",
+            "homepage": "https://github.com/MihailDev/yii2-ckeditor",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "wysiwyg",
+                "yii"
+            ],
+            "time": "2014-11-19 22:04:08"
+        },
+        {
             "name": "rmrevin/yii2-fontawesome",
             "version": "2.13.0",
             "source": {
@@ -620,50 +671,6 @@
                 "mailer"
             ],
             "time": "2015-06-06 14:19:39"
-        },
-        {
-            "name": "yiidoc/yii2-redactor",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiidoc/yii2-redactor.git",
-                "reference": "c4c80c19c68728e88d135f4eec5c51352fbbaa37"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiidoc/yii2-redactor/zipball/c4c80c19c68728e88d135f4eec5c51352fbbaa37",
-                "reference": "c4c80c19c68728e88d135f4eec5c51352fbbaa37",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "yii\\redactor\\": "/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nghia Nguyen",
-                    "email": "zinzinday@gmail.com"
-                }
-            ],
-            "description": "Extension redactor for Yii2 Framework.",
-            "keywords": [
-                "Redactor",
-                "extension",
-                "html editor",
-                "imperavi",
-                "wysiwyg",
-                "yii2"
-            ],
-            "time": "2015-06-02 21:47:24"
         },
         {
             "name": "yiisoft/yii2",
