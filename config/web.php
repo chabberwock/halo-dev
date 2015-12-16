@@ -17,7 +17,7 @@ $config = [
             'cookieValidationKey' => '5rjnhKxtzI74aMSKaRXHDhMIAnOowNGT',
         ],
         'themeManager' => [
-            'class' => 'halo\system\ThemeManager',
+            'class' => 'system\ThemeManager',
             'themeDir' => $basePath . '/themes',
             'theme' => 'dev',
         ],

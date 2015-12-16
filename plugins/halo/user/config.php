@@ -44,7 +44,7 @@ return [
         ],        
         'user' => [
                 'class' => 'dektrium\user\Module',
-                'layout' => '@halo/admin/views/layouts/main',
+                'layout' => '@admin/views/layouts/main',
                 'admins' => ['admin'],
         ],        
     ]

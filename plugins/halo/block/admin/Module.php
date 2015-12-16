@@ -2,10 +2,10 @@
 
 namespace halo\block\admin;
 
-class Module extends \halo\admin\AdminModule
+class Module extends \admin\AdminModule
 {
     public $menuItems = [
-        ['label'=>'HTML Blocks', 'url'=>['/halo.admin/halo.block.admin'], 'icon'=>'fa fa-th']
+        ['label'=>'HTML Blocks', 'url'=>['/admin/halo.block.admin'], 'icon'=>'fa fa-th']
     ];
 
 }

@@ -2,9 +2,9 @@
 
 namespace halo\block;
 
-use halo\admin\events\Menu;
+use admin\events\Menu;
 
-class Plugin extends \halo\system\BasePlugin
+class Plugin extends \system\BasePlugin
 {
     public $controllerNamespace = 'halo\block\controllers';
 
@@ -17,7 +17,7 @@ class Plugin extends \halo\system\BasePlugin
     
     public static function onAdminContentMenu(Menu $event)
     {
-        $event->items[] = ['label'=>'Content Blocks', 'url'=>['/halo.admin/halo.block.admin/default/index'], 'icon'=>'fa fa-th'];
+        $event->items[] = ['label'=>'Content Blocks', 'url'=>['/admin/halo.block.admin/default/index'], 'icon'=>'fa fa-th'];
     }
     
     public function migrationsPath()

@@ -1,7 +1,7 @@
 <?php
 
 namespace halo\devtools\admin;
-use halo\admin\events\Menu;
+use admin\events\Menu;
 use Yii;
 
 class Module extends \yii\base\Module
@@ -15,9 +15,9 @@ class Module extends \yii\base\Module
         $menuEvent = new Menu;
         $menuEvent->items[] = ['label'=>'DEVELOPER TOOLS', 'options' =>['class'=>'header']];        
 
-        $menuEvent->items[] = ['label'=>'Dashboard', 'url'=>['/halo.admin/halo.devtools.admin'], 'icon'=>'fa fa-home'];
+        $menuEvent->items[] = ['label'=>'Dashboard', 'url'=>['/admin/halo.devtools.admin'], 'icon'=>'fa fa-home'];
         $menuEvent->items[] = ['label'=>'Gii', 'url'=>['/gii'], 'icon'=>'fa fa-cog'];        
-        $menuEvent->items[] = ['label'=>'Extensions', 'url'=>['/halo.admin/halo.devtools.admin/default/extensions'], 'icon'=>'fa fa-info'];        
+        $menuEvent->items[] = ['label'=>'Extensions', 'url'=>['/admin/halo.devtools.admin/default/extensions'], 'icon'=>'fa fa-info'];        
 
         Yii::$app->trigger('halo.devtools.menu', $menuEvent);
         
