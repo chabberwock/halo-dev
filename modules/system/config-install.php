@@ -1,5 +1,5 @@
 <?php
-$basePath =  dirname(dirname(dirname(__DIR__)));
+$basePath =  dirname(dirname(__DIR__));
 
 $config = [
     'id' => 'basic',
