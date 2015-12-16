@@ -10,7 +10,7 @@ use yii\helpers\Html;
 <p>Login: admin </p>
 <p>Password: 123456 </p>
 <p>
-<?= Html::a('Visit admin', '/halo.admin/', ['class'=>'btn btn-primary']) ?>
+<?= Html::a('Visit admin', '/admin/', ['class'=>'btn btn-primary']) ?>
 </p>
 
 <p>

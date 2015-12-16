@@ -52,4 +52,4 @@ vendor/                  vendor dir for composer
 2. composer install yii2 and other stuff
 3. make sure runtime and config dirs are writeable
 5. run install.php
-6. login to /halo.admin/ as user: admin, password: 123456
+6. login to /admin/ as user: admin, password: 123456
