@@ -15,8 +15,8 @@ use yii\web\AssetBundle;
  */
 class ThemeAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
     public $baseUrl = '@web';
+    public $sourcePath = '@theme';
     public $css = [
         'css/site.css',
     ];
@@ -26,4 +26,13 @@ class ThemeAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+    
+    public function init()
+    {
+        if (YII_ENV == 'dev') {
+            $this->publishOptions = ['forceCopy'=>true];
+        }
+        
+        parent::init();
+    }
 }
