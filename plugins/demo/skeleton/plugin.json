@@ -1,9 +1,0 @@
-{
-    "id": "demo.skeleton",
-    "name": "Skeleton",
-    "build": 1,
-    "description": "Skeleton watches you. It is a simple plugin that does nothing",
-    "author": "Alexandr Makarov",
-    "icon": "fa fa-gift",
-    "homepage": "https://github.com/chabberwock/halo-dev"
-}
