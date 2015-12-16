@@ -8,4 +8,4 @@ require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/modules/system/Application.php');
 $config = require(__DIR__ . '/modules/system/config-install.php');
-(new \halo\system\Application($config))->run();
+(new \system\Application($config))->run();
