@@ -1,9 +1,9 @@
 <?php
 
 namespace halo\user;
-use halo\admin\events\Menu;
+use admin\events\Menu;
 
-class Plugin extends \halo\system\BasePlugin
+class Plugin extends \system\BasePlugin
 {
     public function init()
     {

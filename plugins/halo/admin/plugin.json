@@ -1,9 +1,0 @@
-{
-    "id": "halo.admin",
-    "name": "Admin",
-    "build": 1,
-    "description": "Admin module",
-    "author": "Alexandr Makarov",
-    "icon": "fa fa-cog",
-    "homepage": "https://github.com/chabberwock/halo-dev"
-}

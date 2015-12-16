@@ -18,7 +18,7 @@ class DefaultController extends Controller
     public function init()
     {
         // Render settings menu on every controller action
-        \Yii::$app->getModule('halo.admin')->contentMenu();
+        \Yii::$app->getModule('admin')->contentMenu();
     }
 
     public function behaviors()

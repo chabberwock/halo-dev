@@ -1,8 +1,8 @@
 <?php
 
 namespace halo\page;
-use halo\system\BasePlugin;
-use halo\admin\events\Menu;
+use system\BasePlugin;
+use admin\events\Menu;
 
 class Module extends BasePlugin
 {
@@ -11,8 +11,8 @@ class Module extends BasePlugin
     public static function onAdminContentMenu(Menu $event)
     {
         $event->items[] = ['label'=>'Pages', 'options' =>['class'=>'header']];        
-        $event->items[] = ['label'=>'New Page',  'url'=>['/halo.admin/halo.page.admin/default/create'], 'icon'=>'fa fa-plus'];
-        $event->items[] = ['label'=>'All Pages', 'url'=>['/halo.admin/halo.page.admin/default/index'], 'icon'=>'fa fa-files-o'];
+        $event->items[] = ['label'=>'New Page',  'url'=>['/admin/halo.page.admin/default/create'], 'icon'=>'fa fa-plus'];
+        $event->items[] = ['label'=>'All Pages', 'url'=>['/admin/halo.page.admin/default/index'], 'icon'=>'fa fa-files-o'];
     }
     
     public function init()

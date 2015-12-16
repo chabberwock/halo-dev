@@ -12,10 +12,10 @@ defined('YII_DEBUG') or define('YII_DEBUG', true);
 
 require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
-require(__DIR__ . '/plugins/halo/system/ConsoleApplication.php');
+require(__DIR__ . '/modules/system/ConsoleApplication.php');
 
 $config = require(__DIR__ . '/config/console.php');
 
-$application = new \halo\system\ConsoleApplication($config);
+$application = new \system\ConsoleApplication($config);
 $exitCode = $application->run();
 exit($exitCode);

@@ -2,8 +2,8 @@
 
 namespace halo\frontpage;
 
-use halo\admin\events\Menu;
-use halo\system\BasePlugin;
+use admin\events\Menu;
+use system\BasePlugin;
 
 class Module extends BasePlugin
 {
@@ -17,7 +17,7 @@ class Module extends BasePlugin
     
     public static function onAdminContentMenu(Menu $event)
     {
-        $event->items[] = ['label'=>'Frontpage', 'url'=>['/halo.admin/halo.frontpage.admin/default/index'], 'icon'=>'fa fa-cog'];
+        $event->items[] = ['label'=>'Frontpage', 'url'=>['/admin/halo.frontpage.admin/default/index'], 'icon'=>'fa fa-cog'];
     }
     
     /**

@@ -1,9 +1,9 @@
 <?php
 
 namespace halo\devtools;
-use halo\admin\events\Menu;
+use admin\events\Menu;
 
-class Plugin extends \halo\system\BasePlugin
+class Plugin extends \system\BasePlugin
 {
     public $controllerNamespace = 'halo\devtools\controllers';
 
@@ -16,7 +16,7 @@ class Plugin extends \halo\system\BasePlugin
     
     public static function onAdminMainMenu(Menu $event)
     {
-        $event->items[] = ['label'=>'Developer', 'url'=>['/halo.admin/halo.devtools.admin'], 'icon'=>'fa fa-cog'];
+        $event->items[] = ['label'=>'Developer', 'url'=>['/admin/halo.devtools.admin'], 'icon'=>'fa fa-cog'];
     }
     
 }

@@ -2,7 +2,7 @@
 
 namespace halo\page\admin;
 
-class Module extends \halo\admin\AdminModule
+class Module extends \admin\AdminModule
 {
 
     public function init()
