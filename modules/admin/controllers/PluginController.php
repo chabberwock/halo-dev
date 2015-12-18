@@ -16,9 +16,10 @@ class PluginController extends \yii\web\Controller
         \Yii::$app->getModule('admin')->settingsMenu();
     }
     
-    public function actionDisable()
+    public function actionDeactivate($id)
     {
-        return $this->render('disable');
+        Yii::$app->pluginManager->deactivate($id);
+        return $this->redirect(['/admin/plugin/index']);
     }
 
     public function actionIndex()
