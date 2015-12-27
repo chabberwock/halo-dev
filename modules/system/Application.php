@@ -14,7 +14,7 @@ class Application extends \yii\web\Application
 {
     use PluginApplication;
 
-    public function __construct($config) 
+    public function __construct(array $config = []) 
     {
         Yii::setAlias('system', __DIR__);
         Yii::setAlias('admin', dirname(__DIR__) . '/admin');

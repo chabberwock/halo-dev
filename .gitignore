@@ -30,3 +30,6 @@ phpunit.phar
 /assets/*
 /content/*
 
+
+tests/_output/*
+tests/_output/*

@@ -4,7 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
+use halo\menu\widgets\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use theme\assets\ThemeAsset;
@@ -36,7 +36,6 @@ ThemeAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ?

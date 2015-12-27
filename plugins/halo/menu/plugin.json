@@ -1,0 +1,9 @@
+{
+    "id": "halo.menu",
+    "name": "Menu",
+    "build": 1,
+    "description": "Menu management",
+    "author": "Alexandr Makarov",
+    "icon": "fa fa-bars",
+    "homepage": "https://github.com/chabberwock/halo-dev"
+}
