@@ -1,4 +1,4 @@
-# Halo CMS development repo
+# Halo CMS - Proper Yii2 CMS
 
 This repository assembles braviest heroes, who devoted their lives to build one more
 Yii2 CMS and save the World. 
