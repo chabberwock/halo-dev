@@ -1,0 +1,9 @@
+{
+    "id": "halo.contact",
+    "name": "Contact Form",
+    "build": 1,
+    "description": "Contact form for your website",
+    "author": "Alexandr Makarov",
+    "icon": "fa fa-mail",
+    "homepage": "https://github.com/chabberwock/halo-dev"
+}

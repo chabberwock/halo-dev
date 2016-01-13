@@ -37,6 +37,7 @@ use mihaildev\ckeditor\CKEditor;
                         <?= Html::submitButton($model->isNewRecord ? Yii::t('halo/page', 'Create') : Yii::t('halo/page', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                     </div>
                     <?= $form->field($model, 'status')->dropDownList(['0'=>'Draft', '1'=>'Published']) ?>
+                    <?= $form->field($model, 'setFrontpage')->checkbox() ?>
                 </div>
             </div>
             
