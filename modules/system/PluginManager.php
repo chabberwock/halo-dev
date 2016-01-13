@@ -87,7 +87,8 @@ class PluginManager extends \yii\base\Component
     protected function export()
     {
         $fileData = '<?php ' . "\n return " . var_export($this->_activePlugins, true) . ';';
-        file_put_contents($this->configFile, $fileData);    
+        file_put_contents($this->configFile, $fileData);
+        opcache_reset();
     }
     
 }
