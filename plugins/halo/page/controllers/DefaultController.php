@@ -7,7 +7,8 @@ use halo\page\models\Page;
 
 class DefaultController extends Controller
 {
-    public function actionIndex($uri)
+    
+    public function actionIndex($uri = '')
     {
         $page = Page::findOne(['uri'=>$uri]);
         if ($page === null) {

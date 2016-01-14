@@ -6,7 +6,7 @@
 
 return [
     'bootstrap' => ['halo\frontpage\Bootstrap'],
-    'defaultRoute' => '/halo.frontpage/default',
+    'defaultRoute' => null,
     'modules' => [
         'halo.frontpage' => [
             'class' => 'halo\frontpage\Module'

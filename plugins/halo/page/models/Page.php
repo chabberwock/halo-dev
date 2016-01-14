@@ -19,9 +19,6 @@ use Yii;
 class Page extends \yii\db\ActiveRecord
 {
     const EVENT_COLLECT_MODELS = 'halo.page.collectModels';
-    
-    public $setFrontpage;
-    
     /**
      * @inheritdoc
      */
@@ -41,7 +38,6 @@ class Page extends \yii\db\ActiveRecord
             [['html'], 'string'],
             [['uri', 'title', 'layout'], 'string', 'max' => 250],
             ['uri','unique'],
-            ['setHomepage','boolean'],
             [['meta_keywords', 'meta_description'], 'string', 'max' => 1024]
         ];
     }
@@ -60,7 +56,6 @@ class Page extends \yii\db\ActiveRecord
             'html' => Yii::t('halo/page', 'Html'),
             'meta_keywords' => Yii::t('halo/page', 'Meta Keywords'),
             'meta_description' => Yii::t('halo/page', 'Meta Description'),
-            'setHomepage' => Yii::t('halo/page', 'Set As Frontpage'),
             
         ];
     }

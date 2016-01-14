@@ -6,6 +6,7 @@
 
 namespace system;
 use yii\helpers\FileHelper;
+use yii\helpers\VarDumper;
 use Yii;
 
 abstract class BasePlugin extends \yii\base\Module
@@ -41,7 +42,7 @@ abstract class BasePlugin extends \yii\base\Module
         if (!is_dir($path)) {
             FileHelper::createDirectory($path);
         }
-        $data = '<?php ' . "\nreturn " . var_export($config, true)  . ';';
+        $data = '<?php ' . "\nreturn " . VarDumper::export($config)  . ';';
         file_put_contents($path . DIRECTORY_SEPARATOR . 'config.php', $data);
     }
     

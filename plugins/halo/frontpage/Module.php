@@ -7,11 +7,9 @@ use system\BasePlugin;
 
 class Module extends BasePlugin
 {
-
     public function init()
     {
         parent::init();
-
         // custom initialization code goes here
     }
     
@@ -27,6 +25,6 @@ class Module extends BasePlugin
     */
     public function setRoute($route)
     {
-        $this->runtimeConfig = ['defaultRoute' => $route];
+        $this->runtimeConfig = ['params' => ['frontpageRoute'=>$route]];
     }
 }
