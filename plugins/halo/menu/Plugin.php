@@ -14,4 +14,12 @@ class Plugin extends \system\BasePlugin
         // custom initialization code goes here
     }
     
+    public function migrationsPath()
+    {
+        return [
+            $this->getBasePath() . '/migrations',
+        ];
+    }
+    
+    
 }
