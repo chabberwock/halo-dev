@@ -7,6 +7,7 @@ use system\install\Plugins;
 use system\MigrationWrapper;
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 
 class InstallController extends \yii\web\Controller
 {
@@ -92,7 +93,7 @@ class InstallController extends \yii\web\Controller
 
     private function saveConfig($fileName, array $config)
     {
-        $fileData = '<?php ' . "\n" . 'return ' . var_export($config, true) . ';';
+        $fileData = '<?php ' . "\n" . 'return ' . VarDumper::export($config) . ';';
         file_put_contents($fileName, $fileData);
     }
     
