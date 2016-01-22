@@ -18,7 +18,7 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         $settings = new Settings;
-        $settings->handler = Yii::$app->params['frontpageRoute'];
+        $settings->handler = isset(Yii::$app->params['frontpageRoute']) ? Yii::$app->params['frontpageRoute'] : null;
         if ($settings->load(Yii::$app->request->post()) && $settings->validate())
         {
             Yii::$app->getModule('halo.frontpage')->setRoute($settings->handler);
