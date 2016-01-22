@@ -44,8 +44,10 @@ return [
         ],        
         'user' => [
                 'class' => 'dektrium\user\Module',
-                'layout' => '@admin/views/layouts/main',
                 'admins' => ['admin'],
+                'controllerMap' => [
+                    'admin' => 'halo\user\admin\AdminController'
+                ],
         ],        
     ]
 ];  
