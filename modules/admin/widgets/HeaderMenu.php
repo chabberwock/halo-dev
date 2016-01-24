@@ -15,9 +15,10 @@ class HeaderMenu extends Menu
 
     public function init()
     {
-        $event = new \admin\events\Menu();
-        Yii::$app->trigger('admin.mainMenu', $event);
-        $this->items = $event->items;
+        /** @var \admin\Ui */
+        $ui = Yii::$app->getModule('admin')->ui;
+        $menu = $ui->menu('main')->toArray();   
+        $this->items = $menu['items'];
     }
 }  
 ?>

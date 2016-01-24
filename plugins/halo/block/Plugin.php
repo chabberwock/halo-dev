@@ -3,6 +3,7 @@
 namespace halo\block;
 
 use admin\events\Menu;
+use Yii;
 
 class Plugin extends \system\BasePlugin
 {
@@ -15,9 +16,13 @@ class Plugin extends \system\BasePlugin
         // custom initialization code goes here
     }
     
-    public static function onAdminContentMenu(Menu $event)
+    public static function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'Content Blocks', 'url'=>['/admin/halo.block.admin/default/index'], 'icon'=>'fa fa-th'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $menu = $ui->menu('content');
+            $general = $menu->item('general');
+            $general->add('Content Blocks', ['/admin/halo.block.admin/default/index'], 'fa fa-th');
     }
     
     public function migrationsPath()

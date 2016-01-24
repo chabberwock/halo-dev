@@ -20,10 +20,12 @@ class Plugin extends \system\BasePlugin
         ];
     }
     
-    public static function onAdminMainMenu(Menu $event)
+    public static function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'Users', 'url'=>['/user/admin'], 'icon'=>'fa fa-user'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $menu = $ui->menu('main');
+        $menu->add('Users', ['/user/admin'], 'fa fa-user');
     }
-    
-    
+
 }

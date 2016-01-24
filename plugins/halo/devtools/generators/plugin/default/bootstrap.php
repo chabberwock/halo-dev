@@ -19,9 +19,7 @@ class Bootstrap implements BootstrapInterface
 {
     public function bootstrap($app)
     {
-        $app->on('admin.mainMenu', ['<?= $ns ?>\admin\Module','onAdminMainMenu']);
-        $app->on('admin.contentMenu', ['<?= $ns ?>\admin\Module','onAdminContentMenu']);
-        $app->on('admin.settingsMenu', ['<?= $ns ?>\admin\Module','onAdminSettingsMenu']);
+        $app->on('admin.ui', ['<?= $ns ?>\admin\Module','onAdminUi']);
     }
     
 }

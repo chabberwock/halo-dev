@@ -11,7 +11,7 @@ class Bootstrap implements BootstrapInterface
 {
     public function bootstrap($app)
     {
-        $app->on('admin.mainMenu', ['halo\user\Plugin','onAdminMainMenu']);
+        $app->on('admin.ui', ['halo\user\Plugin','onAdminUi']);
     }
 } 
   

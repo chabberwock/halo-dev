@@ -16,10 +16,14 @@ class Module extends \system\BasePlugin
         ];
     }
     
-    // displays plugin link in the content section of admin. Event attached in Bootstrap.php
-    public static function onAdminContentMenu(Menu $event)
+
+    public static function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'Menu', 'url'=>['/admin/halo.menu.admin'], 'icon'=>'fa fa-bars'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $menu = $ui->menu('content');
+            $child = $menu->item('general');
+            $child->add('Menu', ['/admin/halo.menu.admin'], 'fa fa-bars');
     }
-    
+
 }

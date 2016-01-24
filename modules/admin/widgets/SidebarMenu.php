@@ -14,7 +14,22 @@ class SidebarMenu extends Menu
 
     public function init()
     {
-        $this->items = isset($this->view->params['sidebarMenu']) ? $this->view->params['sidebarMenu'] : [];
+        $ui = Yii::$app->getModule('admin')->ui;
+        //display top menu items as sections
+        $tmp = $ui->menu($ui->contextMenu)->toArray();   
+        if (!isset($tmp['items'])) {
+            return;
+        }
+        $items = [];
+        foreach ($tmp['items'] as $item) {
+            if (isset($item['items'])) {
+                $items[] = ['label'=>$item['label'], 'options' =>['class'=>'header']];
+                foreach ($item['items'] as $child) {
+                    $items[] = $child;
+                }
+            }
+        }
+        $this->items = $items;
     }
     
     protected function isItemActive($item)

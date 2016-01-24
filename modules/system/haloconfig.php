@@ -36,7 +36,12 @@ $haloTemp = [
             'class' => 'system\Module'
         ],
         'admin' => [
-            'class' => 'admin\Module'
+            'class' => 'admin\Module',
+            'components' => [
+                'ui' => [
+                    'class'=>'admin\Ui',
+                ]
+            ],
         ],
     ],
 

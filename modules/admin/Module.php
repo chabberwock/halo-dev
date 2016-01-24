@@ -48,44 +48,32 @@ class Module extends \yii\base\Module
     }
     
     
-    public static function onAdminMainMenu(Menu $event)
+    public function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'Content', 'url'=>['/admin/content/index'], 'icon'=>'fa fa-th'];
-        $event->items[] = ['label'=>'Settings', 'url'=>['/admin/settings/index'], 'icon'=>'fa fa-cogs'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $menu = $ui->menu('main');
+        $menu->add('Content', ['/admin/content/index'], 'fa fa-th');
+        $menu->add('Settings', ['/admin/settings/index'], 'fa fa-cogs');
     }
     
     public function settingsMenu()
     {
-        $menuEvent = new Menu;
-        $menuEvent->items[] = ['label'=>'Dashboard', 'url'=>['/admin/settings/index'], 'icon'=>'fa fa-home'];
-
-        Yii::$app->trigger('admin.settingsMenu', $menuEvent);
-
-        $menuEvent->items[] = ['label'=>'PLUGINS', 'options' =>['class'=>'header']];        
-        
-        $menuEvent->items[] = ['label'=>'Overview', 'icon'=>'fa fa-home', 'url'=>['/admin/plugin/index']];
-        $menuEvent->items[] = ['label'=>'Manage', 'icon'=>'fa fa-wrench', 'url'=>'#', 'items' => $this->activePluginsMenu()];
-        
-        Yii::$app->view->params['sidebarMenu'] = $menuEvent->items;
-    }
-    
-    public function activePluginsMenu()
-    {
-        $pluginLinks = [];
-        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
-            $info = Yii::$app->getModule($pluginId)->pluginInfo();
-            $pluginLinks[] = ['label' => '<i class="' .$info['icon'].'"></i> ' . $info['name'], 'url'=>['/admin/plugin/manage', 'id'=>$pluginId], 'encode'=>false];
-        }
-        return $pluginLinks;
-        
+        /** @var \admin\Ui */
+        $ui = $this->ui;
+        $ui->contextMenu = 'settings';
+        $menu = $ui->menu('settings');
+        $general = $menu->item('general');
+        $general->label = 'General';
+        $general->add('Plugins', ['/admin/plugin/index'], 'fa fa-bars');
     }
     
     public function contentMenu()
     {
-        $menuEvent = new Menu;
-        $menuEvent->items[] = ['label'=>'Dashboard', 'url'=>['/admin/content/index'], 'icon'=>'fa fa-home'];
-        Yii::$app->trigger('admin.contentMenu', $menuEvent);
-        Yii::$app->view->params['sidebarMenu'] = $menuEvent->items;
+        $this->ui->contextMenu = 'content';
+        $content = $this->ui->menu('content');
+        $general = $content->item('general');
+        $general->label = 'General';
     }
     
 }

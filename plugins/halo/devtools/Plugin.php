@@ -14,9 +14,12 @@ class Plugin extends \system\BasePlugin
         // custom initialization code goes here
     }
     
-    public static function onAdminMainMenu(Menu $event)
+    public function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'Developer', 'url'=>['/admin/halo.devtools.admin'], 'icon'=>'fa fa-cog'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $menu = $ui->menu('main');
+        $menu->add('Developer', ['/admin/halo.devtools.admin'], 'fa fa-cog');
     }
     
 }

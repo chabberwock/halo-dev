@@ -8,13 +8,18 @@ class Module extends BasePlugin
 {
     public $controllerNamespace = 'halo\page\controllers';
 
-    public static function onAdminContentMenu(Menu $event)
+
+    public static function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'Pages', 'options' =>['class'=>'header']];        
-        $event->items[] = ['label'=>'New Page',  'url'=>['/admin/halo.page.admin/default/create'], 'icon'=>'fa fa-plus'];
-        $event->items[] = ['label'=>'All Pages', 'url'=>['/admin/halo.page.admin/default/index'], 'icon'=>'fa fa-files-o'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $menu = $ui->menu('content');
+            $pages = $menu->item('pages');
+            $pages->label = 'Pages';
+            $pages->add('New Page', ['/admin/halo.page.admin/default/create'], 'fa fa-plus');
+            $pages->add('All Pages', ['/admin/halo.page.admin/default/index'], 'fa fa-files-o');
     }
-    
+
     public function init()
     {
         parent::init();

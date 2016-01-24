@@ -1,6 +1,7 @@
 <?php
 
 namespace admin\controllers;
+use Yii;
 
 class ContentController extends \yii\web\Controller
 {

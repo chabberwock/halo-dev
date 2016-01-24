@@ -13,11 +13,15 @@ class Module extends BasePlugin
         // custom initialization code goes here
     }
     
-    public static function onAdminContentMenu(Menu $event)
+    public static function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'Frontpage', 'url'=>['/admin/halo.frontpage.admin/default/index'], 'icon'=>'fa fa-cog'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $menu = $ui->menu('content');
+            $child = $menu->item('general');
+            $child->add('Frontpage', ['/admin/halo.frontpage.admin/default/index'], 'fa fa-cog');
     }
-    
+
     /**
     * Sets route as default website route
     * 

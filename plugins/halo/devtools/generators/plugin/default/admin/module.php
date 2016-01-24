@@ -27,24 +27,21 @@ class Module extends \system\BasePlugin
         ];
     }
     
-    // Displays plugin link in the header. Event attached in Bootstrap.php
-    public static function onAdminMainMenu(Menu $event)
+    // Configures admin interface. Event attached in Bootstrap.php
+    public static function onAdminUi($event)
     {
-        $event->items[] = ['label'=>'<?= $generator->name ?>', 'url'=>['/admin/<?= $generator->fullId() ?>.admin/'], 'icon'=>'<?= $generator->icon ?>'];
+        /** @var \admin\Ui */
+        $ui = $event->sender;
+        $main = $ui->menu('main');
+        $main->add('<?= $generator->name ?>', ['/admin/<?= $generator->fullId() ?>.admin/'], '<?= $generator->icon ?>');
+        
+        $content = $ui->menu('content');
+        $general = $content->item('general');
+        $general->add('<?= $generator->name ?>', ['/admin/<?= $generator->fullId() ?>.admin/'], '<?= $generator->icon ?>');
+
+        $settings = $ui->menu('settings');
+        $general = $settings->item('general');
+        $general->add('<?= $generator->name ?>', ['/admin/<?= $generator->fullId() ?>.admin/'], '<?= $generator->icon ?>');
     }
 
-    // displays plugin link in the content section of admin. Event attached in Bootstrap.php
-    public static function onAdminContentMenu(Menu $event)
-    {
-        $event->items[] = ['label'=>'<?= $generator->name ?>', 'options' =>['class'=>'header']];        
-        $event->items[] = ['label'=>'Dashboard', 'url'=>['/admin/<?= $generator->fullId() ?>.admin/'], 'icon'=>'<?= $generator->icon ?>'];
-    }
-
-    // displays plugin link in the content section of admin. Event attached in Bootstrap.php
-    public static function onAdminSettingsMenu(Menu $event)
-    {
-        $event->items[] = ['label'=>'<?= $generator->name ?>', 'options' =>['class'=>'header']];        
-        $event->items[] = ['label'=>'Dashboard', 'url'=>['/admin/<?= $generator->fullId() ?>.admin/'], 'icon'=>'<?= $generator->icon ?>'];
-    }
-    
 }

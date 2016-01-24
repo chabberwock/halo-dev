@@ -8,7 +8,7 @@ class Bootstrap implements BootstrapInterface
 {
     public function bootstrap($app)
     {
-        $app->on('admin.contentMenu', ['halo\menu\admin\Module','onAdminContentMenu']);
+        $app->on('admin.ui', ['halo\menu\admin\Module','onAdminUi']);
     }
     
 }

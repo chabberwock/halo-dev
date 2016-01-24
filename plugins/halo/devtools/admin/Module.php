@@ -11,19 +11,14 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-        
-        $menuEvent = new Menu;
-        $menuEvent->items[] = ['label'=>'DEVELOPER TOOLS', 'options' =>['class'=>'header']];        
-
-        $menuEvent->items[] = ['label'=>'Dashboard', 'url'=>['/admin/halo.devtools.admin'], 'icon'=>'fa fa-home'];
-        $menuEvent->items[] = ['label'=>'Gii', 'url'=>['/gii'], 'icon'=>'fa fa-cog'];        
-        $menuEvent->items[] = ['label'=>'Extensions', 'url'=>['/admin/halo.devtools.admin/default/extensions'], 'icon'=>'fa fa-info'];        
-
-        Yii::$app->trigger('halo.devtools.menu', $menuEvent);
-        
-        Yii::$app->view->params['sidebarMenu'] = $menuEvent->items;
-        
-
-        // custom initialization code goes here
+        /** @var \admin\Ui */
+        $ui = \Yii::$app->getModule('admin')->ui;
+        $ui->contextMenu = 'devtools';
+        $menu = $ui->menu('devtools');
+        $general = $menu->item('general');
+        $general->label = 'General';
+        $general->add('Dashboard', ['/admin/halo.devtools.admin/default/index'], 'fa fa-home');
+        $general->add('Gii', ['/gii'], 'fa fa-cog');
+        $general->add('Extensions', ['/admin/halo.devtools.admin/default/extensions'], 'fa fa-info');
     }
 }
