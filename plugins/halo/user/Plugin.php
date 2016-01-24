@@ -26,6 +26,10 @@ class Plugin extends \system\BasePlugin
         $ui = $event->sender;
         $menu = $ui->menu('main');
         $menu->add('Users', ['/user/admin'], 'fa fa-user');
+        
+        $ui->addWidget('content.mini', [
+            'class' => 'halo\user\admin\widgets\MiniCounter',
+        ]);
     }
 
 }

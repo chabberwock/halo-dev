@@ -1,9 +1,15 @@
 <?php
 /* @var $this yii\web\View */
-?>
-<h1>content/index</h1>
 
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+?>
+
+<div class="row">
+    <?php foreach ($miniWidgets as $idx=>$widget): ?>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <?= $widget->run() ?>
+        </div>
+        <?php if ($idx % 4 == 0 && $idx > 0): ?>
+            </div><div class="row">
+        <?php endif ?>
+    <?php endforeach ?>
+</div>

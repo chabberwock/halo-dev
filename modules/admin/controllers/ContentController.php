@@ -14,7 +14,12 @@ class ContentController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $miniWidgets = \Yii::$app->getModule('admin')->ui->widgets('content.mini');
+        $widgets = \Yii::$app->getModule('admin')->ui->widgets('content');
+        
+        return $this->render('index', ['miniWidgets'=>$miniWidgets, 'widgets'=>$widgets]);
     }
+    
+    
 
 }

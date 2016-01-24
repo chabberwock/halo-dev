@@ -42,7 +42,11 @@ class Module extends \yii\base\Module
             }
         }
         Yii::configure($this, $config);
-        Yii::$app->layoutPath = '@admin/views/layouts';       
+
+        Yii::$app->themeManager->theme = 'admin';
+        Yii::$app->themeManager->activate();
+
+        //Yii::$app->layoutPath = '@admin/views/layouts';       
         parent::init();
         // custom initialization code goes here
     }
