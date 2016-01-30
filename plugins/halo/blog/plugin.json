@@ -1,0 +1,9 @@
+{
+    "id": "halo.blog",
+    "name": "Blog",
+    "build": 1,
+    "description": "Create blog or post news",
+    "author": "Alexandr Makarov",
+    "icon": "fa fa-newspaper-o",
+    "homepage": "http://halocms.ru"
+}

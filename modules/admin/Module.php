@@ -13,7 +13,7 @@ class Module extends \yii\base\Module
     public $defaultRoute = 'content';
     
 
-    public function behaviors()
+    public function behaviorso()
     {
         return [
             'access' => [
@@ -33,18 +33,19 @@ class Module extends \yii\base\Module
 
     public function init()
     {
-        $config = [];
-        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
-            $namespace = explode('.', $pluginId)[0];
-            $pluginPath = Yii::$app->pluginPath . DIRECTORY_SEPARATOR . str_replace('.',DIRECTORY_SEPARATOR, $pluginId);
-            if (is_file($pluginPath . '/config-admin.php')) {
-                $config = ArrayHelper::merge($config, require($pluginPath . '/config-admin.php'));
+        if (!(Yii::$app instanceof \system\ConsoleApplication)) {
+            $config = [];
+            foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
+                $namespace = explode('.', $pluginId)[0];
+                $pluginPath = Yii::$app->pluginPath . DIRECTORY_SEPARATOR . str_replace('.',DIRECTORY_SEPARATOR, $pluginId);
+                if (is_file($pluginPath . '/config-admin.php')) {
+                    $config = ArrayHelper::merge($config, require($pluginPath . '/config-admin.php'));
+                }
             }
+            Yii::configure($this, $config);
+            Yii::$app->themeManager->theme = 'admin';
+            Yii::$app->themeManager->activate();
         }
-        Yii::configure($this, $config);
-
-        Yii::$app->themeManager->theme = 'admin';
-        Yii::$app->themeManager->activate();
 
         //Yii::$app->layoutPath = '@admin/views/layouts';       
         parent::init();
