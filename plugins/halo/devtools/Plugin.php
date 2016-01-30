@@ -14,7 +14,7 @@ class Plugin extends \system\BasePlugin
         // custom initialization code goes here
     }
     
-    public function onAdminUi($event)
+    public static function onAdminUi($event)
     {
         /** @var \admin\Ui */
         $ui = $event->sender;

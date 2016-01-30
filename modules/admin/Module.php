@@ -53,7 +53,7 @@ class Module extends \yii\base\Module
     }
     
     
-    public function onAdminUi($event)
+    public static function onAdminUi($event)
     {
         /** @var \admin\Ui */
         $ui = $event->sender;
