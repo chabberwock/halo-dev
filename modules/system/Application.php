@@ -19,7 +19,7 @@ class Application extends \yii\web\Application
         Yii::setAlias('system', __DIR__);
         Yii::setAlias('admin', dirname(__DIR__) . '/admin');
         $this->initPluginManager($config);
-        $haloConfig = require(__DIR__ . '/haloconfig.php');
+        $haloConfig = require(__DIR__ . '/config/haloconfig.php');
         $cfg = ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config.php'), $config);
         $file = $cfg['vendorPath'] . '/yiisoft/extensions.php';
         $extensions = is_file($file) ? include($file) : [];

@@ -19,7 +19,7 @@ class ConsoleApplication extends \yii\console\Application
         Yii::setAlias('system', __DIR__);
         Yii::setAlias('admin', dirname(__DIR__) . '/admin');
         $this->initPluginManager($config);
-        $haloConfig = require(__DIR__ . '/haloconfig-console.php');
+        $haloConfig = require(__DIR__ . '/config/haloconfig-console.php');
         $cfg = ArrayHelper::merge($haloConfig, $this->loadPluginConfigs('/config-console.php'), $config);
         $file = $cfg['vendorPath'] . '/yiisoft/extensions.php';
         $extensions = is_file($file) ? include($file) : [];

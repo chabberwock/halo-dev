@@ -2,6 +2,7 @@
 
 $haloTemp = [
     'bootstrap' => ['log','themeManager','system\Bootstrap', 'admin\Bootstrap'],
+    'controllerMap' => ['elfinder'=>require('elfinder.php')],
     'components' => [
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
