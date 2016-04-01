@@ -40,7 +40,13 @@ class Nav extends \yii\bootstrap\Nav
                 $items[$model->parent_id]['items'][] = ['label'=>$model->title, 'url'=>$this->parseRoute($model->route)];
             }
         }
+
         $this->items = ArrayHelper::merge($items, $this->items);
+
+        if(Yii::$app->user->identity && Yii::$app->user->identity->getIsAdmin())
+        {
+            $this->items[] = ['label' => 'Admin Panel', 'url' => '/admin'];
+        }
     }
     
     private function parseRoute($route)

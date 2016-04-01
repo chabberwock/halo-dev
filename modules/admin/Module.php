@@ -13,7 +13,7 @@ class Module extends \yii\base\Module
     public $defaultRoute = 'content';
     
 
-    public function behaviorso()
+    public function behaviors()
     {
         return [
             'access' => [

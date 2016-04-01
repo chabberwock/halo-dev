@@ -15,7 +15,12 @@ class UserPanel extends \yii\base\Widget
 
     public function run()
     {
-        return $this->render('userpanel/index', ['user'=>Yii::$app->user->getIdentity()]);    
+        $user = Yii::$app->user->getIdentity();
+
+        if($user)
+        {
+            return $this->render('userpanel/index', ['user' => $user]);
+        }
         
     }
     
