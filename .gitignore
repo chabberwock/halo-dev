@@ -32,7 +32,6 @@ phpunit.phar
 
 
 tests/_output/*
-tests/_output/*
 
 /plugins/halo/layout
 /tests
