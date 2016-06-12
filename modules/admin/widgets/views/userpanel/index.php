@@ -5,6 +5,11 @@ use yii\helpers\Html;
 ?> 
 
             <ul class="nav navbar-nav">
+
+                <li>
+                    <a href="//<?=$_SERVER['HTTP_HOST']?>"><i class="fa fa-home"></i> Home</a>
+                </li>
+
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
