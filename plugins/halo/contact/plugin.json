@@ -4,6 +4,6 @@
     "build": 1,
     "description": "Contact form for your website",
     "author": "Alexandr Makarov",
-    "icon": "fa fa-mail",
+    "icon": "fa fa-envelope",
     "homepage": "https://github.com/chabberwock/halo-dev"
 }
