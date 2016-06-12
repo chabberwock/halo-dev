@@ -1,18 +1,18 @@
 <?php
+
 class Yii extends \yii\BaseYii
 {
     /**
     * Halo Application
-    * 
-    * @var {BaseApplication|WebApplication|ConsoleApplication}
+    *
+    * @var BaseApplication|WebApplication|ConsoleApplication $app
     */
     public static $app;
 }
 
 /**
-* Properties will be declared here
-*
-*/
+ * @property system\PluginManager $pluginManager
+ */
 abstract class BaseApplication  extends \yii\base\Application
 {
 
@@ -32,5 +32,3 @@ spl_autoload_register(['Yii', 'autoload'], true, true);
 Yii::$classMap = require(__DIR__ . '/vendor/yiisoft/yii2/classes.php');
 Yii::$container = new yii\di\Container();
 
-  
-?>
