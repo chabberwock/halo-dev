@@ -5,7 +5,7 @@ namespace halo\frontpage;
 use admin\events\Menu;
 use system\BasePlugin;
 
-class Module extends BasePlugin
+class Plugin extends BasePlugin
 {
     public function init()
     {

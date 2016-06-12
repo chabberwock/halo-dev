@@ -9,7 +9,7 @@ return [
     'defaultRoute' => null,
     'modules' => [
         'halo.frontpage' => [
-            'class' => 'halo\frontpage\Module'
+            'class' => 'halo\frontpage\Plugin'
         ]
     ]
 ];  
