@@ -2,10 +2,8 @@
 
 namespace admin\controllers;
 
-use system\models\Plugin;
-use system\BasePlugin;
-use yii\filters\VerbFilter;
 use Yii;
+use yii\base\Exception;
 
 class PluginController extends \yii\web\Controller
 {
@@ -25,8 +23,16 @@ class PluginController extends \yii\web\Controller
     public function actionIndex()
     {
         $plugins = [];
-        foreach (Yii::$app->pluginManager->activePlugins as $pluginId) {
-            $plugins[$pluginId] = Yii::$app->getModule($pluginId)->pluginInfo();
+        foreach (Yii::$app->pluginManager->activePlugins as $pluginId)
+        {
+            $plugin = Yii::$app->getModule($pluginId);
+
+            if(!$plugin)
+            {
+                throw new Exception("Plugin '{$pluginId}' not found");
+            }
+
+            $plugins[$pluginId] = $plugin->pluginInfo();
         }
         $available = [];
         foreach (Yii::$app->pluginManager->availablePlugins as $pluginId=>$info) {
