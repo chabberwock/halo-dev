@@ -3,7 +3,6 @@
 * @author Alexandr Makarov
 * Email: notengine@gmail.com
 */
-
 return [
     'extensions' => [
           'yiisoft/yii2-authclient' => 
@@ -48,7 +47,18 @@ return [
                 'controllerMap' => [
                     'admin' => 'halo\user\admin\AdminController'
                 ],
-        ],        
+        ],
+    ],
+    'components' => [
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user' => '@theme/user'
+                ]
+            ]
+        ]
     ]
+    
+    
 ];  
 ?>

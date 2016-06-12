@@ -27,6 +27,11 @@ class Plugin extends \system\BasePlugin
         $menu = $ui->menu('main');
         $menu->add('Users', ['/user/admin'], 'fa fa-user');
         
+        $userMenu = $ui->menu('user');
+        $users = $userMenu->add('Users');
+        $users->add('List', ['/user/admin'], 'fa fa-home');
+        $users->add('Create', ['/user/admin/create'], 'fa fa-plus');
+        
         $ui->addWidget('content.mini', [
             'class' => 'halo\user\admin\widgets\MiniCounter',
         ]);

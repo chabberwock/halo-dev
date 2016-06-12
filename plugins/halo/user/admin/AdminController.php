@@ -14,9 +14,12 @@ class AdminController extends \dektrium\user\controllers\AdminController
     
     public function init()
     {
+        Yii::$app->getModule('admin/halo.user')->contextMenu();
+
         parent::init();
         
         $menuEvent = new Menu;
+        
         $menuEvent->items[] = ['label'=>'Users', 'options' =>['class'=>'header']];        
 
         $menuEvent->items[] = ['label'=>'Home', 'url'=>['/user/admin/index'], 'icon'=>'fa fa-home'];

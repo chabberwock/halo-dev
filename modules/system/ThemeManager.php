@@ -27,11 +27,15 @@ class ThemeManager extends Component
                 '@halo' => '@theme'
             ]
         ];
+        
         if (!isset(Yii::$app->view->theme)) {
             $viewConfig['class'] = 'yii\base\Theme';
             Yii::$app->view->theme = Yii::createObject($viewConfig);    
         } else {
-            Yii::configure(Yii::$app->view->theme, $viewConfig);
+            $theme = Yii::$app->view->theme;
+            $theme->basePath = '@theme';
+            $theme->baseUrl = '@web/themes/' . $this->theme;
+            $theme->pathMap['@halo'] = '@theme';
         }
         Yii::$app->layoutPath = '@theme/layouts'; 
     }

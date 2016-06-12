@@ -7,9 +7,6 @@ namespace system;
 use yii\helpers\ArrayHelper;
 use Yii;
 
-require __DIR__ . '/PluginApplication.php';
-require __DIR__ . '/PluginManager.php';
-
 class ConsoleApplication extends \yii\console\Application
 {
     use PluginApplication;

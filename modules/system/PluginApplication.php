@@ -10,8 +10,9 @@ use Yii;
 
 trait PluginApplication 
 {
-    public $pluginPath;
 
+    public $pluginPath;
+    
     protected function loadPluginConfigs($configName)
     {
         $config = [];

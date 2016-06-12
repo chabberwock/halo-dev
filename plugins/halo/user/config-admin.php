@@ -3,12 +3,11 @@
 * @author Alexandr Makarov
 * Email: notengine@gmail.com
 */
-
 return [
     'modules' => [
-        'halo.user.admin' => [
+        'halo.user' => [
             'class' => 'halo\user\admin\Module',
         ]    
-    ]
+    ],
 ];  
 ?>
