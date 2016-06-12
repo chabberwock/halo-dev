@@ -2,8 +2,12 @@
 
 namespace admin\controllers;
 
-use Yii;
+use system\models\Plugin;
+use system\BasePlugin;
+use system\PluginManager;
 use yii\base\Exception;
+use yii\filters\VerbFilter;
+use Yii;
 
 class PluginController extends \yii\web\Controller
 {
@@ -16,7 +20,11 @@ class PluginController extends \yii\web\Controller
     
     public function actionDeactivate($id)
     {
-        Yii::$app->pluginManager->deactivate($id);
+        /**
+         * @var  PluginManager $pluginManager
+         */
+        $pluginManager = Yii::$app->pluginManager;
+        $pluginManager->deactivate($id);
         return $this->redirect(['/admin/plugin/index']);
     }
 
@@ -33,6 +41,7 @@ class PluginController extends \yii\web\Controller
             }
 
             $plugins[$pluginId] = $plugin->pluginInfo();
+            $plugins[$pluginId]['isSystem'] = in_array($pluginId, Yii::$app->pluginManager->systemPlugins);
         }
         $available = [];
         foreach (Yii::$app->pluginManager->availablePlugins as $pluginId=>$info) {
@@ -43,7 +52,8 @@ class PluginController extends \yii\web\Controller
             
             $available[$pluginId] = $info;
         }
-        
+
+
         return $this->render('index', ['plugins'=>$plugins, 'available'=>$available]);
     }
     
