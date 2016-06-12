@@ -29,6 +29,7 @@ class Bootstrap implements BootstrapInterface
                 $activeRoute = 'default';
             }            
             if ($activeRoute == 'default') {
+                if(empty($handler->handlers)) return;
                 $app->defaultRoute = array_keys($handler->handlers)[0];
             } else {
                 $app->defaultRoute = $activeRoute;
