@@ -29,5 +29,3 @@ class Application extends \yii\web\Application
     }
     
 }
-  
-?>
