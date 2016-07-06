@@ -18,9 +18,14 @@ class Nav extends \yii\bootstrap\Nav
     {
         parent::init();
 
-        $tableSchema = Yii::$app->db->schema->getTableSchema(MenuItem::tableName());
+        try {
+            $tableSchema = Yii::$app->db->schema->getTableSchema(MenuItem::tableName());
+        }
+        catch(\yii\db\Exception $e){
 
-        if($tableSchema === null)
+        }
+
+        if(empty($tableSchema))
         {
             return;
         }
