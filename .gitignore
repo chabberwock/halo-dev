@@ -29,6 +29,7 @@ phpunit.phar
 /runtime
 /assets/*
 /content/*
+/uploads/*
 
 
 tests/_output/*
