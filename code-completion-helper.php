@@ -15,7 +15,10 @@ class Yii extends \yii\BaseYii
  */
 abstract class BaseApplication  extends \yii\base\Application
 {
-
+    /**
+     * @var \team\tracker\components\TelegramBot
+     */
+    public $telegramBot;
 }
 
 class ConsoleApplication extends \system\ConsoleApplication
