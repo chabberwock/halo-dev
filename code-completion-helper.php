@@ -19,6 +19,11 @@ abstract class BaseApplication  extends \yii\base\Application
      * @var \team\tracker\components\TelegramBot
      */
     public $telegramBot;
+
+    /**
+     * @var \team\tracker\components\TrackerNotify
+     */
+    public $trackerNotify;
 }
 
 class ConsoleApplication extends \system\ConsoleApplication
