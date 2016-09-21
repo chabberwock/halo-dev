@@ -26,10 +26,12 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
+/config
 /runtime
 /assets/*
 /content/*
 /uploads/*
+/data/*
 
 
 tests/_output/*
