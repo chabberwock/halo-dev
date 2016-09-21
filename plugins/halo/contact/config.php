@@ -7,4 +7,11 @@ return [
             'class' => 'halo\contact\Plugin'
         ],
     ],
+    'components' => [
+        'urlManager' => [
+            'rules' => [
+                '/contacts' => '/halo.contact/default/index'
+            ]
+        ],
+    ]
 ];  
