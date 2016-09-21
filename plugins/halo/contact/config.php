@@ -10,7 +10,7 @@ return [
     'components' => [
         'urlManager' => [
             'rules' => [
-                '/contacts' => '/halo.contact/default/index'
+                '/contact' => '/halo.contact/default/index'
             ]
         ],
     ]
