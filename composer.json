@@ -22,7 +22,11 @@
         "yiisoft/yii2-jui": "~2.0",
         "mihaildev/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",        
-        "devgroup/yii2-ace-widget": "*"                
+        "devgroup/yii2-ace-widget": "*",
+        "kartik-v/yii2-widget-select2": "*",
+        "kartik-v/yii2-datecontrol": "*",
+        "kartik-v/yii2-widget-datetimepicker": "*",
+        "kartik-v/yii2-widget-datepicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "*",
