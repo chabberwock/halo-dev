@@ -1,0 +1,1 @@
+php yii migrate/create %1 --migrationPath=@team/tracker/migrations

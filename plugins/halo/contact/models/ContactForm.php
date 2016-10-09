@@ -52,7 +52,7 @@ class ContactForm extends Model
         return Yii::$app->mailer->compose()
             ->setTo($email)
             ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
+            ->setSubject("[Contact form {$_SERVER['HTTP_HOST']}] ".$this->subject)
             ->setTextBody($this->body)
             ->send();
     }

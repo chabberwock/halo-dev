@@ -59,10 +59,7 @@ return [
                     'admin' => 'halo\user\admin\AdminController'
                 ],
         ],
-        'rbac' => [
-            'class'=>'dektrium\rbac\RbacWebModule',
-            'layout' => '@admin/views/layouts/main',
-        ],      
+        'rbac' => 'dektrium\rbac\RbacConsoleModule',        
     ],
     'components' => [
         'view' => [
