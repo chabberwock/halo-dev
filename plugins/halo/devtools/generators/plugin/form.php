@@ -13,5 +13,7 @@
     echo $form->field($generator, 'author');
     echo $form->field($generator, 'description');
     echo $form->field($generator, 'homepage');
+    echo $form->field($generator, 'buildAdmin')->checkbox();
+    echo $form->field($generator, 'buildConsole')->checkbox();
 ?>
 </div>

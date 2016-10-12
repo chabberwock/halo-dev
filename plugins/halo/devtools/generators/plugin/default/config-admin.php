@@ -9,7 +9,7 @@ echo "<?php\n";
 // this config will be merged into admin module config
 return [
     'modules' => [
-        '<?= $generator->fullID() ?>.admin' => [
+        '<?= $generator->fullID() ?>' => [
             'class' => '<?= $generator->ns() ?>\admin\Module',
         ]    
     ]
