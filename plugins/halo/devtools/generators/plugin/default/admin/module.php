@@ -23,7 +23,7 @@ class Module extends \system\BasePlugin
         parent::init();
         
         Yii::$app->view->params['sidebarMenu'] = [
-            ['label'=>'Dashboard', 'url'=>['/admin/<?= $generator->fullId() ?>.admin/'], 'icon'=>'fa fa-home']
+            ['label'=>'Dashboard', 'url'=>[$this->uniqueId], 'icon'=>'fa fa-home']
         ];
     }
     
@@ -33,15 +33,15 @@ class Module extends \system\BasePlugin
         /** @var \admin\Ui */
         $ui = $event->sender;
         $main = $ui->menu('main');
-        $main->add('<?= $generator->name ?>', ['/admin/<?= $generator->fullId() ?>.admin/'], '<?= $generator->icon ?>');
+        $main->add('<?= $generator->name ?>', ['/admin/<?= $generator->pluginID ?>'], '<?= $generator->icon ?>');
         
         $content = $ui->menu('content');
         $general = $content->item('general');
-        $general->add('<?= $generator->name ?>', ['/admin/<?= $generator->fullId() ?>.admin/'], '<?= $generator->icon ?>');
+        $general->add('<?= $generator->name ?>', ['/admin/<?= $generator->pluginID ?>'], '<?= $generator->icon ?>');
 
         $settings = $ui->menu('settings');
         $general = $settings->item('general');
-        $general->add('<?= $generator->name ?>', ['/admin/<?= $generator->fullId() ?>.admin/'], '<?= $generator->icon ?>');
+        $general->add('<?= $generator->name ?>', ['/admin/<?= $generator->pluginID ?>'], '<?= $generator->icon ?>');
     }
 
 }

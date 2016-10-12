@@ -30,8 +30,8 @@ class Generator extends \yii\gii\Generator
     public $description;
     public $homepage;
     public $icon;
-
-
+    public $buildConsole;
+    public $buildAdmin;
     /**
      * @inheritdoc
      */
@@ -56,6 +56,7 @@ class Generator extends \yii\gii\Generator
         return array_merge(parent::rules(), [
             [['vendorID', 'pluginID'], 'filter', 'filter' => 'trim'],
             [['vendorID', 'pluginID'], 'required'],
+            [['buildConsole','buildAdmin'], 'safe'],
             [['description','author','icon','homepage','name'], 'string'],
             [['vendorID','pluginID'], 'match', 'pattern' => '/^[a-z]+$/', 'message' => 'Only lowercase letters allowed'],
         ]);
@@ -73,7 +74,8 @@ class Generator extends \yii\gii\Generator
     
     public function fullID()
     {
-        return $this->vendorID . '.' . $this->pluginID;
+//        return $this->vendorID . '.' . $this->pluginID;    
+        return $this->pluginID;    
     }
     
     public function ns()
@@ -95,7 +97,7 @@ class Generator extends \yii\gii\Generator
     public function requiredTemplates()
     {
         return ['plugin.php', 'controller.php', 'view.php', 'info.php', 
-        'config.php', 'config-admin.php', 'bootstrap.php', 
+        'config.php', 'config-admin.php', 'config-console.php', 'console-controller.php', 'bootstrap.php', 
         'admin/controller.php', 'admin/module.php', 'admin/view.php'];
     }
 
@@ -138,27 +140,32 @@ class Generator extends \yii\gii\Generator
             $this->render("config.php")
         );
 
-        $files[] = new CodeFile(
-            $modulePath . '/config-admin.php',
-            $this->render("config-admin.php")
-        );
-
-        // now generate admin
+        if ($this->buildAdmin) {
+            $files[] = new CodeFile(
+                $modulePath . '/config-admin.php',
+                $this->render("config-admin.php")
+            );
+            $files[] = new CodeFile(
+                $modulePath . '/admin/Module.php',
+                $this->render("admin/module.php")
+            );
+            $files[] = new CodeFile(
+                $modulePath . '/admin/controllers/DefaultController.php',
+                $this->render("admin/controller.php")
+            );
+            $files[] = new CodeFile(
+                $modulePath . '/admin/views/default/index.php',
+                $this->render("admin/view.php")
+            );
+        }
         
-        $files[] = new CodeFile(
-            $modulePath . '/admin/Module.php',
-            $this->render("admin/module.php")
-        );
-
-        $files[] = new CodeFile(
-            $modulePath . '/admin/controllers/DefaultController.php',
-            $this->render("admin/controller.php")
-        );
-        
-        $files[] = new CodeFile(
-            $modulePath . '/admin/views/default/index.php',
-            $this->render("admin/view.php")
-        );
+        if ($this->buildConsole) {
+            $files[] = new CodeFile(
+                $modulePath . '/commands/DefaultController.php',
+                $this->render("console-controller.php")
+            );
+            
+        }
 
         
         return $files;
