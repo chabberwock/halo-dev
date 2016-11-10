@@ -26,7 +26,8 @@
         "kartik-v/yii2-widget-select2": "*",
         "kartik-v/yii2-datecontrol": "*",
         "kartik-v/yii2-widget-datetimepicker": "*",
-        "kartik-v/yii2-widget-datepicker": "*"
+        "kartik-v/yii2-widget-datepicker": "*",
+        "chabberwock/yii2-files": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "*",
