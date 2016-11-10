@@ -16,6 +16,7 @@ class Plugin extends \system\BasePlugin
     {
         return [
             $this->basePath . '/vendor/dektrium/yii2-user/migrations',
+            $this->basePath . '/vendor/dektrium/yii2-rbac/migrations',
             $this->basePath . '/migrations',
         ];
     }
