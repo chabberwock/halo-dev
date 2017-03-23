@@ -6,12 +6,15 @@ body {
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
     padding: 0 0 60px;
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 0px 15px 20px;
+}
+
+.navbar > .container {
+    padding-right: 0;
 }
 
 .footer {
